@@ -16,7 +16,7 @@
   \**********************/
 /***/ (() => {
 
-eval("\nconst firebaseConfig = {\n    apiKey: \"AIzaSyCVQV958Z41fzCxgG9S11QAvBzW1xZy_4o\",\n    authDomain: \"dropshiping-website.firebaseapp.com\",\n    projectId: \"dropshiping-website\",\n    storageBucket: \"dropshiping-website.appspot.com\",\n    messagingSenderId: \"88265939594\",\n    appId: \"1:88265939594:web:2f6292f1ca92a5c3e9eb73\",\n    measurementId: \"G-E3T06T74CL\",\n};\nconsole.log(\"Nigger\");\n\n\n//# sourceURL=webpack://dropshiping-website/./src/index.js?");
+eval("\r\nconst firebaseConfig = {\r\n    apiKey: \"AIzaSyCVQV958Z41fzCxgG9S11QAvBzW1xZy_4o\",\r\n    authDomain: \"dropshiping-website.firebaseapp.com\",\r\n    projectId: \"dropshiping-website\",\r\n    storageBucket: \"dropshiping-website.appspot.com\",\r\n    messagingSenderId: \"88265939594\",\r\n    appId: \"1:88265939594:web:2f6292f1ca92a5c3e9eb73\",\r\n    measurementId: \"G-E3T06T74CL\",\r\n};\r\nconsole.log(\"Nigger\");\r\n\n\n//# sourceURL=webpack://dropshiping-website/./src/index.js?");
 
 /***/ })
 
