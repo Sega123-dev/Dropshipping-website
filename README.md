@@ -23,7 +23,7 @@ TECHNOLOGIES USED: TypeScript,JavaScript,CSS,HTML,TailwindCSS,Firebase
 
 This website is a copy of another one and they look very similar.I didn't added things that were hard to implement.I focused more into the functionality of Firebase than UI.
 
-Website used for inspiration: simpletics.com
+Website used for inspiration: [`simpletics.com`](https://simpletics.com)
 
 # Notes
 
