@@ -1,4 +1,4 @@
-# Dropshipping-website
+# Dropshipping website
 
 Full-stack website that is built using Firebase and front-end technologies.
 
