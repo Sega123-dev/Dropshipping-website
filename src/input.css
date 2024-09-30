@@ -8,3 +8,13 @@
 .light-grey {
   background-color: #232323;
 }
+.light-blue {
+  background-color: #6ebce6;
+}
+.grey-hover {
+  transition: background-color 0.25s ease;
+}
+.grey-hover:hover {
+  background-color: #353535;
+  outline: 2px solid #fff;
+}
