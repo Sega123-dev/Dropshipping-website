@@ -7,4 +7,3 @@ const firebaseConfig = {
   appId: "1:88265939594:web:2f6292f1ca92a5c3e9eb73",
   measurementId: "G-E3T06T74CL",
 };
-console.log("Nigger");
