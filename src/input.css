@@ -36,3 +36,11 @@ html {
   outline: 1px solid #232323;
   color: #232323;
 }
+.product-hover {
+  border: 1px solid #6a6a6a;
+  text-align: center;
+  transition: border 0.3s ease;
+}
+.product-hover:hover {
+  border: 1px solid #000;
+}
