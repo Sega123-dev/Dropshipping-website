@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  height: 100%;
+}
+html {
+  scroll-behavior: smooth;
+}
 .dark-grey {
   background-color: #1e1e1e;
 }
@@ -17,4 +23,16 @@
 .grey-hover:hover {
   background-color: #353535;
   outline: 2px solid #fff;
+}
+.sticky-navbar {
+  position: sticky;
+  top: 0;
+}
+.white-hover {
+  transition: background-color 0.5s ease;
+}
+.white-hover:hover {
+  background: transparent;
+  outline: 1px solid #232323;
+  color: #232323;
 }
