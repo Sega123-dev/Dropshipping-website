@@ -573,6 +573,11 @@ video {
   margin-bottom: 1rem;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mb-16 {
   margin-bottom: 4rem;
 }
@@ -593,6 +598,10 @@ video {
   margin-left: 1.75rem;
 }
 
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
 .mr-20 {
   margin-right: 5rem;
 }
@@ -605,12 +614,12 @@ video {
   margin-top: 1rem;
 }
 
-.mt-7 {
-  margin-top: 1.75rem;
+.mt-6 {
+  margin-top: 1.5rem;
 }
 
-.mr-1 {
-  margin-right: 0.25rem;
+.mt-7 {
+  margin-top: 1.75rem;
 }
 
 .block {
@@ -629,12 +638,20 @@ video {
   height: 100vh;
 }
 
+.w-full {
+  width: 100%;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
 
 .flex-grow {
   flex-grow: 1;
+}
+
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .cursor-pointer {
@@ -689,6 +706,10 @@ video {
   padding: 6rem;
 }
 
+.p-3 {
+  padding: 0.75rem;
+}
+
 .p-4 {
   padding: 1rem;
 }
@@ -699,6 +720,10 @@ video {
 
 .p-9 {
   padding: 2.25rem;
+}
+
+.p-8 {
+  padding: 2rem;
 }
 
 .px-10 {
@@ -825,6 +850,14 @@ html {
 
 .product-hover:hover {
   border: 1px solid #000;
+}
+
+.add-to-cart-hover {
+  transition: margin 0.2s ease;
+}
+
+.add-to-cart-hover:hover {
+  margin-top: 1rem;
 }
 
 .hover\:bg-transparent:hover {

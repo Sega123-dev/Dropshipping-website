@@ -44,3 +44,9 @@ html {
 .product-hover:hover {
   border: 1px solid #000;
 }
+.add-to-cart-hover {
+  transition: margin 0.2s ease;
+}
+.add-to-cart-hover:hover {
+  margin-top: 1rem;
+}
