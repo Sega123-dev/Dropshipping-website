@@ -50,3 +50,30 @@ html {
 .add-to-cart-hover:hover {
   margin-top: 1rem;
 }
+
+@keyframes marquee {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes marquee2 {
+  from {
+    transform: translateX(-200%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+.marquee {
+  display: inline-block;
+  animation: marquee 50s linear infinite;
+}
+.marquee2 {
+  display: inline-block;
+  animation: marquee2 50s linear infinite, marquee-margin 1s linear 1;
+  animation-delay: 25s;
+}
