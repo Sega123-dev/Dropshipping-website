@@ -17,6 +17,9 @@ html {
 .light-blue {
   background-color: #6ebce6;
 }
+.lightest-grey {
+  background-color: #353535;
+}
 .grey-hover {
   transition: background-color 0.25s ease;
 }
