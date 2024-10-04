@@ -76,7 +76,13 @@ html {
   animation: marquee 50s linear infinite;
 }
 .marquee2 {
+  z-index: 2;
   display: inline-block;
-  animation: marquee2 50s linear infinite, marquee-margin 1s linear 1;
+  animation: marquee2 50s linear infinite;
   animation-delay: 25s;
+}
+.redeem-container {
+  position: relative;
+  width: 100%;
+  height: 320px;
 }
