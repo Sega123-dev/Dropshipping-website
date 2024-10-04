@@ -4,7 +4,7 @@ Full-stack website that is built using Firebase and front-end technologies.
 
 The website is a dropshipping platform where users can browse products, add them to cart, and checkout.
 
-Some pages are not made because this is a demo version that is made just to be able to interact with firebase features,auth,cart,payments etc.
+Some pages are not made because this is a demo version that is made just to be able to interact with firebase features,authentication,cart,payments etc.
 
 # Features
 
@@ -27,5 +27,5 @@ Website used for inspiration: [`simpletics.com`](https://simpletics.com)
 
 # Notes
 
-For testing payments write fake email and write 42 repeatedly for the credit card information.
+For testing payments, write fake email and write 42 repeatedly for the credit card information.
 Files that are not pushed to GitHub are enviorment variables and node_module folder.
