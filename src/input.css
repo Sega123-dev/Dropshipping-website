@@ -95,3 +95,12 @@ html {
 .subscribtion-holder ::placeholder {
   color: #fff;
 }
+option {
+  margin: 0;
+  padding: 0;
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
