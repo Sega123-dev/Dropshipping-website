@@ -701,6 +701,10 @@ video {
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .h-full {
   height: 100%;
 }
@@ -733,8 +737,8 @@ video {
   cursor: pointer;
 }
 
-.cursor-zoom-in {
-  cursor: zoom-in;
+.flex-row-reverse {
+  flex-direction: row-reverse;
 }
 
 .flex-wrap {
@@ -841,6 +845,10 @@ video {
 
 .p-9 {
   padding: 2.25rem;
+}
+
+.p-0 {
+  padding: 0px;
 }
 
 .px-1 {
@@ -967,6 +975,16 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+::-moz-selection {
+  background-color: whitesmoke;
+  color: #232323;
+}
+
+::selection {
+  background-color: whitesmoke;
+  color: #232323;
 }
 
 .dark-grey {
@@ -1097,4 +1115,34 @@ option {
 
 .hover\:bg-transparent:hover {
   background-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .md\:m-0 {
+    margin: 0px;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0px;
+  }
+
+  .md\:block {
+    display: block;
+  }
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:p-0 {
+    padding: 0px;
+  }
 }

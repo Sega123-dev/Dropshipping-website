@@ -45,15 +45,36 @@
         <div class="block light-grey text-white fredoka p-4">
           <nav class="flex text-lg items-center z-10">
             <div class="flex-1 flex-grow">
-              <a href="#" class="ml-7">Shop all</a>
+              <a href="#" class="ml-7 md:block hidden" title="Shop all"
+                >Shop all</a
+              >
+              <svg
+                class="cursor-pointer md:hidden"
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#fff"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>
             </div>
             <div class="flex-1 flex-grow text-center">
-              <a href="#" class="text-3xl tracking-widest font-semibold"
+              <a
+                href="#"
+                class="text-3xl tracking-widest font-semibold"
+                title="Watches"
                 >Watches</a
               >
             </div>
             <div class="flex-1 flex-grow flex justify-end">
-              <a href="#" class="mx-2"
+              <a href="#" class="mx-2 md:block hidden"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="28"
@@ -68,7 +89,7 @@
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                   <circle cx="12" cy="7" r="4"></circle></svg
               ></a>
-              <a href="#" class="mx-2"
+              <a href="#" class="mx-2" title="Cart"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="28"
@@ -133,11 +154,11 @@
           </div>
         </div>
       </section>
-      <section>
-        <div class="flex light-grey h-screen">
-          <div class="flex-1 flex-grow text-white items-center flex">
-            <div>
-              <h1 class="text-4xl fredoka-bold mx-10">
+      <section class="light-grey">
+        <div class="md:flex light-grey h-screen flex-row-reverse md:flex-row">
+          <div class="flex-1 flex-grow text-white items-center md:flex w-full">
+            <div class="md:m-0 md:p-0 light-grey">
+              <h1 class="text-4xl fredoka-bold mx-10 md:mt-0 light-grey mt-4">
                 Precise,slick and elegant
               </h1>
               <p class="text-lg mx-10 py-4 fredoka">
@@ -146,6 +167,7 @@
               <button
                 type="button"
                 class="light-blue p-4 text-white fredoka-bold mx-10 my-4 px-10 rounded-full flex items-center grey-hover"
+                title="Claim product for 15% off"
               >
                 Claim Your Product
                 <svg
@@ -165,7 +187,9 @@
               </button>
             </div>
           </div>
-          <div class="flex-1 flex-grow flex items-center justify-center">
+          <div
+            class="flex-1 flex-grow md:flex items-center justify-center block"
+          >
             <img
               src="images/brown watch.jpg"
               alt="Watch hero section"
@@ -177,7 +201,7 @@
         </div>
       </section>
       <section>
-        <div class="flex" style="color: #232323; height: 90vh">
+        <div class="flex flex-wrap" style="color: #232323; height: 90vh">
           <div class="flex flex-1 justify-center items-center flex-grow">
             <img
               src="images/blue watch.jpg"
@@ -196,6 +220,7 @@
               </p>
               <button
                 class="light-grey p-4 px-6 text-white mt-7 fredoka-light rounded-lg cursor-pointer hover:bg-transparent white-hover"
+                title="Shop now"
               >
                 Shop Now
               </button>
@@ -223,7 +248,7 @@
         <h1 class="text-white text-center p-6 fredoka-bold text-4xl">
           As seen on
         </h1>
-        <div class="flex flex-wrap light-grey content-between pb-12">
+        <div class="md:flex flex-wrap light-grey content-between pb-12">
           <div class="flex-1 flex-grow flex justify-center items-center p-9">
             <img
               src="//simpletics.com/cdn/shop/files/NYT_copy.jpg?v=1726179522&amp;width=2000"
@@ -276,20 +301,33 @@
               <p class="fredoka text-2xl mt-4 mb-2">KM 250,00</p>
               <p class="fredoka-light text-lg mb-4">Tax included.</p>
               <p class="text-md fredoka">Other watches</p>
-              <button class="p-2 fredoka-light product-hover mt-2 text-sm mr-1">
+              <button
+                class="p-2 fredoka-light product-hover mt-2 text-sm mr-1"
+                title="Mahogany"
+              >
                 Mahogany
               </button>
-              <button class="p-2 fredoka-light product-hover mt-2 text-sm m-1">
+              <button
+                class="p-2 fredoka-light product-hover mt-2 text-sm m-1"
+                title="Casio"
+              >
                 Casio
               </button>
-              <button class="p-2 fredoka-light product-hover mt-2 text-sm m-1">
+              <button
+                class="p-2 fredoka-light product-hover mt-2 text-sm m-1"
+                title="Rolex"
+              >
                 Rolex
               </button>
-              <button class="p-2 fredoka-light product-hover mt-2 text-sm m-1">
+              <button
+                class="p-2 fredoka-light product-hover mt-2 text-sm m-1"
+                title="G-Shock"
+              >
                 G-Shock
               </button>
               <button
                 class="light-grey text-white text-center w-full rounded-full fredoka-light p-3 mt-6 add-to-cart-hover"
+                title="Add to Cart"
               >
                 ADD TO CART
               </button>
@@ -395,14 +433,14 @@
           </p>
           <div class="p-8 flex justify-center items-center">
             <img
-              class="m-4 cursor-zoom-in hover:"
+              class="m-4"
               src="images/omega watch.jpg"
               alt="Omega Seamaster 300M"
               width="500"
               height="500"
             />
             <img
-              class="m-4 cursor-zoom-in"
+              class="m-4"
               src="images/gold watch.jpg"
               alt="Gold watch"
               width="480"
@@ -411,6 +449,7 @@
           </div>
           <button
             class="light-grey p-4 px-6 text-white mt-4 fredoka-light rounded-lg cursor-pointer hover:bg-transparent white-hover text-xl"
+            title="Claim Special Offer"
           >
             CLAIM YOURS
           </button>
@@ -775,7 +814,10 @@
               class="w-full p-2 rounded-full mt-4 outline-none cursor-pointer text-black reedem-input"
             />
             <div class="flex justify-center">
-              <button class="p-3 bg-white rounded-full text-black px-6 mt-4">
+              <button
+                class="p-3 bg-white rounded-full text-black px-6 mt-4"
+                title="Redeem this code to instantly save 15% on your Purchase!"
+              >
                 REEDEM
               </button>
             </div>
@@ -786,43 +828,63 @@
         <div class="light-grey text-white flex align-center">
           <div class="p-10 pr-10 mt-20" style="flex: 2">
             <p class="fredoka-light m-4">Contact Email:</p>
-            <p class="fredoka-light m-4 mt-2">support@watches.com</p>
+            <p class="fredoka-light m-4 mt-2" title="support@watches.com">
+              support@watches.com
+            </p>
             <p class="fredoka-light m-4 mt-2">
               Whatever you want us to know or answer, good or bad, we're always
               here.
             </p>
           </div>
           <div class="flex-1 flex-grow py-10 mt-20">
-            <a href="#" class="fredoka-light">Shop All</a>
+            <a href="#" class="fredoka-light" title="Shop All">Shop All</a>
           </div>
           <div class="flex-1 flex-grow py-10 mt-20">
-            <a href="#" class="fredoka-light block m-1">Search</a>
-            <a href="#" class="fredoka-light block m-1">Contact Information</a>
-            <a href="#" class="fredoka-light block m-1">Privacy Policy</a>
-            <a href="#" class="fredoka-light block m-1">Refund Policy</a>
-            <a href="#" class="fredoka-light block m-1">Shipping Policy</a>
-            <a href="#" class="fredoka-light block m-1">Terms of Service</a>
+            <a href="#" class="fredoka-light block m-1" title="Search"
+              >Search</a
+            >
+            <a
+              href="#"
+              class="fredoka-light block m-1"
+              title="Contact Information"
+              >Contact Information</a
+            >
+            <a href="#" class="fredoka-light block m-1" title="Privacy Policy"
+              >Privacy Policy</a
+            >
+            <a href="#" class="fredoka-light block m-1" title="Refund Policy"
+              >Refund Policy</a
+            >
+            <a href="#" class="fredoka-light block m-1" title="Shipping Policy"
+              >Shipping Policy</a
+            >
+            <a href="#" class="fredoka-light block m-1" title="Terms of Service"
+              >Terms of Service</a
+            >
           </div>
           <div class="p-10 mt-20 ml-6" style="flex: 2">
             <h1 class="text-xl fredoka-bold" style="line-height: 1.3">
               Sign up for 20% off your next order and get exclusive access to
               all of our email only deals!
             </h1>
-            <div
+            <form
               class="flex items-center text-center justify-center subscribtion-holder"
             >
               <input
                 placeholder="email@example.com"
-                class="fredoka p-2 mt-4 rounded-full outline-none text-white bg-transparent subscribe-input"
+                class="fredoka-light p-2 mt-4 rounded-full outline-none text-white bg-transparent subscribe-input"
                 style="flex: 2"
+                type="email"
               />
               <button
                 class="flex-1 flex-grow bg-white m-2 mt-6 p-2.5 rounded-full"
+                title="Subscribe"
+                type="submit"
                 style="color: #000"
               >
                 SUBSCRIBE
               </button>
-            </div>
+            </form>
           </div>
         </div>
         <div
@@ -1330,7 +1392,9 @@
           </div>
           <div class="flex-1 flex-grow float-end">
             <div class="float-end fredoka-light">
-              <select class="bg-transparent outline-none light-grey m-2 flex">
+              <select
+                class="bg-transparent outline-none light-grey m-2 flex cursor-pointer"
+              >
                 <option value="Afghanistan" class="fredoka-light">
                   Afghanistan
                 </option>
