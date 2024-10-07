@@ -8,3 +8,23 @@ const firebaseConfig = {
     appId: "1:88265939594:web:2f6292f1ca92a5c3e9eb73",
     measurementId: "G-E3T06T74CL",
 };
+let slides = document.querySelectorAll("[data-slide]");
+let nextButton = document.querySelector("#next");
+let previousButton = document.querySelector("#prev");
+let slideIndex = 1;
+showSlides(slideIndex);
+function plusSlides(n) {
+    showSlides((slideIndex += n));
+}
+function showSlides(n) {
+    if (n > slides.length)
+        slideIndex = 1;
+    if (n < 1)
+        slideIndex = slides.length;
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndex - 1].style.display = "block";
+}
+nextButton === null || nextButton === void 0 ? void 0 : nextButton.addEventListener("click", () => plusSlides(1));
+previousButton === null || previousButton === void 0 ? void 0 : previousButton.addEventListener("click", () => plusSlides(-1));
