@@ -22,9 +22,9 @@ function showSlides(n) {
     if (n < 1)
         slideIndex = slides.length;
     for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+        slides[i].classList.add("hidden");
     }
-    slides[slideIndex - 1].style.display = "block";
+    slides[slideIndex - 1].classList.remove("hidden");
 }
 nextButton === null || nextButton === void 0 ? void 0 : nextButton.addEventListener("click", () => plusSlides(1));
 previousButton === null || previousButton === void 0 ? void 0 : previousButton.addEventListener("click", () => plusSlides(-1));
@@ -45,3 +45,21 @@ backToTopButton === null || backToTopButton === void 0 ? void 0 : backToTopButto
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 });
+let FAQs = document.querySelectorAll("[data-faq]");
+let FAQAnswers = document.querySelectorAll("[data-answer]");
+let secondFAQ = FAQs[2];
+function FAQsFunctionImplement() {
+    for (let i = 0; i < FAQs.length; i++) {
+        FAQs[i].addEventListener("click", () => {
+            FAQAnswers[i].classList.remove("hidden");
+            FAQAnswers[i].classList.add("block");
+            if (FAQAnswers[i].style.display === "none") {
+                FAQAnswers[i].style.display = "block";
+            }
+            else {
+                FAQAnswers[i].style.display = "none";
+            }
+        });
+    }
+}
+FAQsFunctionImplement();

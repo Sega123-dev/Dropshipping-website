@@ -566,24 +566,12 @@ video {
   position: relative;
 }
 
-.left-8 {
-  left: 2rem;
-}
-
 .bottom-0 {
   bottom: 0px;
 }
 
-.left-1\/2 {
-  left: 50%;
-}
-
-.right-1\/2 {
-  right: 50%;
-}
-
-.right-0 {
-  right: 0px;
+.left-8 {
+  left: 2rem;
 }
 
 .z-10 {
@@ -809,6 +797,10 @@ video {
   border-radius: 0.5rem;
 }
 
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
 .border {
   border-width: 1px;
 }
@@ -873,6 +865,10 @@ video {
 
 .p-9 {
   padding: 2.25rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
 }
 
 .px-1 {
