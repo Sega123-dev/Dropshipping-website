@@ -108,3 +108,11 @@ option {
   font-style: normal;
   font-variation-settings: "wdth" 100;
 }
+@keyframes fade {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}

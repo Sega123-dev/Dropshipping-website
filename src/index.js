@@ -28,3 +28,20 @@ function showSlides(n) {
 }
 nextButton === null || nextButton === void 0 ? void 0 : nextButton.addEventListener("click", () => plusSlides(1));
 previousButton === null || previousButton === void 0 ? void 0 : previousButton.addEventListener("click", () => plusSlides(-1));
+let backToTopButton = document.querySelector("[data-back-to-top]");
+window.onscroll = () => {
+    showBTTButton();
+};
+function showBTTButton() {
+    if (document.body.scrollTop > 200 ||
+        document.documentElement.scrollTop > 200) {
+        backToTopButton.style.display = "block";
+    }
+    else {
+        backToTopButton.style.display = "none";
+    }
+}
+backToTopButton === null || backToTopButton === void 0 ? void 0 : backToTopButton.addEventListener("click", () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+});

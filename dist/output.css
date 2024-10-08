@@ -554,12 +554,36 @@ video {
   display: none;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
 
+.relative {
+  position: relative;
+}
+
 .left-8 {
   left: 2rem;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
+.left-1\/2 {
+  left: 50%;
+}
+
+.right-1\/2 {
+  right: 50%;
+}
+
+.right-0 {
+  right: 0px;
 }
 
 .z-10 {
@@ -783,6 +807,10 @@ video {
 
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.border {
+  border-width: 1px;
 }
 
 .bg-transparent {
@@ -1107,6 +1135,16 @@ option {
   font-weight: 100;
   font-style: normal;
   font-variation-settings: "wdth" 100;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .hover\:bg-transparent:hover {

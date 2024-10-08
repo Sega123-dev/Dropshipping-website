@@ -8,8 +8,8 @@ const firebaseConfig = {
   measurementId: "G-E3T06T74CL",
 };
 let slides = document.querySelectorAll<HTMLElement>("[data-slide]");
-let nextButton = document.querySelector("#next");
-let previousButton = document.querySelector("#prev");
+let nextButton = document.querySelector<HTMLButtonElement>("#next");
+let previousButton = document.querySelector<HTMLButtonElement>("#prev");
 
 let slideIndex: number = 1;
 showSlides(slideIndex);
@@ -30,3 +30,25 @@ function showSlides(n: number): any {
 
 nextButton?.addEventListener("click", () => plusSlides(1));
 previousButton?.addEventListener("click", () => plusSlides(-1));
+
+let backToTopButton: HTMLButtonElement | null =
+  document.querySelector("[data-back-to-top]");
+
+window.onscroll = () => {
+  showBTTButton();
+};
+
+function showBTTButton(): any {
+  if (
+    document.body.scrollTop > 200 ||
+    document.documentElement.scrollTop > 200
+  ) {
+    backToTopButton!.style.display = "block";
+  } else {
+    backToTopButton!.style.display = "none";
+  }
+}
+backToTopButton?.addEventListener("click", () => {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+});

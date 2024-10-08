@@ -33,7 +33,29 @@
     </style>
   </head>
   <body>
-    <main>
+    <main class="relative">
+      <section>
+        <button
+          data-back-to-top
+          class="bottom-0 p-4 m-4 bg-white fixed inline text-center rounded-full z-10"
+          title="Back to Top"
+          style="border: 1px solid #232323; left: 49%"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#232323"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M18 15l-6-6-6 6" />
+          </svg>
+        </button>
+      </section>
       <section>
         <div class="block text-center dark-grey text-white p-1">
           <p style="font-size: 0.95rem" class="fredoka-light">
@@ -45,7 +67,7 @@
         <div class="block light-grey text-white fredoka p-4">
           <nav class="flex text-lg items-center z-10">
             <div class="flex-1 flex-grow">
-              <a href="#" class="ml-7 md:block hidden" title="Shop all"
+              <a href="#shop" class="ml-7 md:block hidden" title="Shop all"
                 >Shop all</a
               >
               <svg
@@ -164,27 +186,28 @@
               <p class="text-lg mx-10 py-4 fredoka">
                 15% OFF AND FREE SHIPPING WHEN BUYING 2 WATCHES OR MORE
               </p>
-              <button
-                type="button"
-                class="light-blue p-4 text-white fredoka-bold mx-10 my-4 px-10 rounded-full flex items-center grey-hover"
-                title="Claim product for 15% off"
-              >
-                Claim Your Product
-                <svg
-                  class="inline ml-2"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#fff"
-                  stroke-width="1"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+              <a href="#shop"
+                ><button
+                  type="button"
+                  class="light-blue p-4 text-white fredoka-bold mx-10 my-4 px-10 rounded-full flex items-center grey-hover"
+                  title="Claim product for 15% off"
                 >
-                  <path d="M5 12h13M12 5l7 7-7 7" />
-                </svg>
-              </button>
+                  Claim Your Product
+                  <svg
+                    class="inline ml-2"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M5 12h13M12 5l7 7-7 7" />
+                  </svg></button
+              ></a>
             </div>
           </div>
           <div
@@ -218,12 +241,14 @@
                 Timepieces as unique as you are.One of the best watches that are
                 available on the market.
               </p>
-              <button
-                class="light-grey p-4 px-6 text-white mt-7 fredoka-light rounded-lg cursor-pointer hover:bg-transparent white-hover"
-                title="Shop now"
+              <a href="#"
+                ><button
+                  class="light-grey p-4 px-6 text-white mt-7 fredoka-light rounded-lg cursor-pointer hover:bg-transparent white-hover"
+                  title="Shop now"
+                >
+                  Shop Now
+                </button></a
               >
-                Shop Now
-              </button>
             </div>
           </div>
         </div>
@@ -279,7 +304,7 @@
           </div>
         </div>
       </section>
-      <section>
+      <section id="shop">
         <div class="p-16 flex" style="color: #232323">
           <div
             class="flex flex-1 align-items justify-center"
@@ -447,12 +472,14 @@
               height="480"
             />
           </div>
-          <button
-            class="light-grey p-4 px-6 text-white mt-4 fredoka-light rounded-lg cursor-pointer hover:bg-transparent white-hover text-xl"
-            title="Claim Special Offer"
+          <a href="#shop"
+            ><button
+              class="light-grey p-4 px-6 text-white mt-4 fredoka-light rounded-lg cursor-pointer hover:bg-transparent white-hover text-xl"
+              title="Claim Special Offer"
+            >
+              CLAIM YOURS
+            </button></a
           >
-            CLAIM YOURS
-          </button>
         </div>
       </section>
       <section>
@@ -525,7 +552,11 @@
           <h1 class="text-white fredoka-bold text-center text-5xl mt-8 my-4">
             Dont just take it from us...
           </h1>
-          <div class="lightest-grey text-center mx-24 my-8 slides" data-slide>
+          <div
+            class="lightest-grey text-center mx-24 my-8 slides"
+            data-slide
+            style="animation: fade 1s forwards"
+          >
             <div class="flex justify-center pt-4 pb-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -599,7 +630,11 @@
               <p class="fredoka-bold text-lg text-white pt-4">Daniel Hayes</p>
             </div>
           </div>
-          <div class="lightest-grey text-center mx-24 my-8 slides" data-slide>
+          <div
+            class="lightest-grey text-center mx-24 my-8 slides"
+            data-slide
+            style="animation: fade 1s forwards"
+          >
             <div class="flex justify-center pt-4 pb-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -671,7 +706,11 @@
               <p class="fredoka-bold text-lg text-white pt-4">Milan</p>
             </div>
           </div>
-          <div class="lightest-grey text-center mx-24 my-8 slides" data-slide>
+          <div
+            class="lightest-grey text-center mx-24 my-8 slides"
+            data-slide
+            style="animation: fade 1s forwards"
+          >
             <div class="flex justify-center pt-4 pb-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -747,7 +786,11 @@
               </p>
             </div>
           </div>
-          <div class="lightest-grey text-center mx-24 my-8 slides" data-slide>
+          <div
+            class="lightest-grey text-center mx-24 my-8 slides"
+            data-slide
+            style="animation: fade 1s forwards"
+          >
             <div class="flex justify-center pt-4 pb-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -817,7 +860,11 @@
               <p class="fredoka-bold text-lg text-white pt-4">Anonymous User</p>
             </div>
           </div>
-          <div class="lightest-grey text-center mx-24 my-8 slides" data-slide>
+          <div
+            class="lightest-grey text-center mx-24 my-8 slides"
+            data-slide
+            style="animation: fade 1s forwards"
+          >
             <div class="flex justify-center pt-4 pb-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -1184,7 +1231,13 @@
           class="text-white light-grey p-12 fredoka-light items-center flex pt-24"
         >
           <div class="flex-1 flex-grow">
-            <p class="float-start">&copy;2024,Watches.</p>
+            <p class="float-start">
+              &copy;
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              ,Watches.
+            </p>
           </div>
           <div class="flex-1 flex items-center justify-center" style="flex: 1">
             <ul class="payment-icons mx-2 text-center">
