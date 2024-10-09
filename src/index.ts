@@ -72,3 +72,24 @@ function FAQsFunctionImplement(): void {
   }
 }
 FAQsFunctionImplement();
+
+async function fetchUserCountry(): Promise<void> {
+  try {
+    let selectOptions = document.querySelectorAll<HTMLOptionElement>("option");
+    const response = await fetch("https://ipapi.co/json/");
+
+    if (!response.ok) {
+      throw new Error("Fetching User Country Failed");
+    }
+    const data = await response.json();
+    selectOptions.forEach((option) => {
+      if (option.value === data.country_name) {
+        option.selected = true;
+      }
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+window.onload = fetchUserCountry;

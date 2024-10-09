@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 const firebaseConfig = {
     apiKey: "AIzaSyCVQV958Z41fzCxgG9S11QAvBzW1xZy_4o",
     authDomain: "dropshiping-website.firebaseapp.com",
@@ -63,3 +72,24 @@ function FAQsFunctionImplement() {
     }
 }
 FAQsFunctionImplement();
+function fetchUserCountry() {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            let selectOptions = document.querySelectorAll("option");
+            const response = yield fetch("https://ipapi.co/json/");
+            if (!response.ok) {
+                throw new Error("Fetching User Country Failed");
+            }
+            const data = yield response.json();
+            selectOptions.forEach((option) => {
+                if (option.value === data.country_name) {
+                    option.selected = true;
+                }
+            });
+        }
+        catch (error) {
+            console.error(error);
+        }
+    });
+}
+window.onload = fetchUserCountry;
