@@ -801,10 +801,6 @@ video {
   border-radius: 0.5rem;
 }
 
-.rounded-xl {
-  border-radius: 0.75rem;
-}
-
 .border {
   border-width: 1px;
 }
@@ -869,10 +865,6 @@ video {
 
 .p-9 {
   padding: 2.25rem;
-}
-
-.p-5 {
-  padding: 1.25rem;
 }
 
 .px-1 {
@@ -1145,6 +1137,11 @@ option {
   100% {
     opacity: 1;
   }
+}
+
+*:focus {
+  outline: 1px dashed whitesmoke;
+  border: 1px solid #000;
 }
 
 .hover\:bg-transparent:hover {

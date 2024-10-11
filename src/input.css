@@ -116,3 +116,7 @@ option {
     opacity: 1;
   }
 }
+*:focus {
+  outline: 1px dashed whitesmoke;
+  border: 1px solid #000;
+}
