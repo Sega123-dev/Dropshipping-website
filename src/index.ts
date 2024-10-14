@@ -128,8 +128,8 @@ mahoganyButton?.addEventListener("click", () => {
   productDisplay!.innerText = "Mahogany Brown Leather Watch";
   priceDisplay!.innerText = "$ 250,00";
 
-  casioButton?.classList.add("active");
-  mahoganyButton?.classList.remove("active");
+  casioButton?.classList.remove("active");
+  mahoganyButton?.classList.add("active");
   gShockButton?.classList.remove("active");
   rolexButton?.classList.remove("active");
 });

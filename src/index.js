@@ -118,8 +118,8 @@ mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.a
     gShockImage === null || gShockImage === void 0 ? void 0 : gShockImage.classList.add("hidden");
     productDisplay.innerText = "Mahogany Brown Leather Watch";
     priceDisplay.innerText = "$ 250,00";
-    casioButton === null || casioButton === void 0 ? void 0 : casioButton.classList.add("active");
-    mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.classList.remove("active");
+    casioButton === null || casioButton === void 0 ? void 0 : casioButton.classList.remove("active");
+    mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.classList.add("active");
     gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.classList.remove("active");
     rolexButton === null || rolexButton === void 0 ? void 0 : rolexButton.classList.remove("active");
 });
