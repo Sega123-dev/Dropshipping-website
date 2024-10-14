@@ -93,3 +93,85 @@ async function fetchUserCountry(): Promise<void> {
 }
 
 window.onload = fetchUserCountry;
+
+let mahoganyImage = document.querySelector<HTMLImageElement>("#mahogany");
+let casioImage = document.querySelector<HTMLImageElement>("#casio");
+let rolexImage = document.querySelector<HTMLImageElement>("#rolex");
+let gShockImage = document.querySelector<HTMLImageElement>("#g-shock");
+
+let productDisplay =
+  document.querySelector<HTMLHeadingElement>("#product-display");
+let priceDisplay = document.querySelector<HTMLParagraphElement>("#price");
+let mahoganyButton =
+  document.querySelector<HTMLButtonElement>("#mahogany-button");
+let casioButton = document.querySelector<HTMLButtonElement>("#casio-button");
+let rolexButton = document.querySelector<HTMLButtonElement>("#rolex-button");
+let gShockButton = document.querySelector<HTMLButtonElement>("#g-shock-button");
+
+function showFirstProduct(): any {
+  mahoganyImage?.classList.remove("hidden");
+  casioImage?.classList.add("hidden");
+  rolexImage?.classList.add("hidden");
+  gShockImage?.classList.add("hidden");
+
+  mahoganyButton?.classList.add("active");
+}
+
+window.onload = showFirstProduct();
+
+mahoganyButton?.addEventListener("click", () => {
+  mahoganyImage?.classList.remove("hidden");
+  casioImage?.classList.add("hidden");
+  rolexImage?.classList.add("hidden");
+  gShockImage?.classList.add("hidden");
+
+  productDisplay!.innerText = "Mahogany Brown Leather Watch";
+  priceDisplay!.innerText = "$ 250,00";
+
+  casioButton?.classList.add("active");
+  mahoganyButton?.classList.remove("active");
+  gShockButton?.classList.remove("active");
+  rolexButton?.classList.remove("active");
+});
+casioButton?.addEventListener("click", () => {
+  mahoganyImage?.classList.add("hidden");
+  casioImage?.classList.remove("hidden");
+  rolexImage?.classList.add("hidden");
+  gShockImage?.classList.add("hidden");
+
+  productDisplay!.innerText = "Casio Black Watch for Women";
+  priceDisplay!.innerText = "$ 80,00";
+
+  casioButton?.classList.add("active");
+  mahoganyButton?.classList.remove("active");
+  gShockButton?.classList.remove("active");
+  rolexButton?.classList.remove("active");
+});
+rolexButton?.addEventListener("click", () => {
+  mahoganyImage?.classList.add("hidden");
+  casioImage?.classList.add("hidden");
+  rolexImage?.classList.remove("hidden");
+  gShockImage?.classList.add("hidden");
+
+  productDisplay!.innerText = "Rolex Golden Luxury Watch for Women";
+  priceDisplay!.innerText = "$ 320,00";
+
+  casioButton?.classList.remove("active");
+  mahoganyButton?.classList.remove("active");
+  gShockButton?.classList.remove("active");
+  rolexButton?.classList.add("active");
+});
+gShockButton?.addEventListener("click", () => {
+  mahoganyImage?.classList.add("hidden");
+  casioImage?.classList.add("hidden");
+  rolexImage?.classList.add("hidden");
+  gShockImage?.classList.remove("hidden");
+
+  productDisplay!.innerText = "G-Shock Black and Gold Watch";
+  priceDisplay!.innerText = "$ 280,00";
+
+  casioButton?.classList.remove("active");
+  mahoganyButton?.classList.remove("active");
+  gShockButton?.classList.add("active");
+  rolexButton?.classList.remove("active");
+});

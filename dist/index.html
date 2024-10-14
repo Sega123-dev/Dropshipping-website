@@ -32,7 +32,7 @@
       }
     </style>
   </head>
-  <body>
+  <body onload="showFirstProduct()">
     <main class="relative">
       <section>
         <button
@@ -316,37 +316,70 @@
               width="350"
               height="350"
               class="rounded-3xl"
+              id="mahogany"
+            />
+            <img
+              src="images/casio.jpg"
+              alt="Casio Black Watch"
+              width="380"
+              height="380"
+              class="rounded-3xl"
+              id="casio"
+            />
+            <img
+              src="images/g-shock.jpg"
+              alt="G-Shock Black and Gold Watch"
+              width="350"
+              height="350"
+              class="rounded-3xl"
+              id="g-shock"
+            />
+            <img
+              src="images/rolex.jpg"
+              alt="Rolex Luxury Watch"
+              width="330"
+              height="330"
+              class="rounded-3xl"
+              id="rolex"
             />
           </div>
           <div class="flex flex-1">
             <div>
-              <h1 class="fredoka-bold text-5xl" style="line-height: 1.2">
+              <h1
+                class="fredoka-bold text-5xl"
+                id="product-display"
+                style="line-height: 1.2"
+              >
                 Mahogany Brown Leather Watch
               </h1>
-              <p class="fredoka text-2xl mt-4 mb-2" data-price>$ 250,00</p>
+              <p class="fredoka text-2xl mt-4 mb-2" id="price">$ 250,00</p>
               <p class="fredoka-light text-lg mb-4">Tax included.</p>
               <p class="text-md fredoka">Other watches</p>
               <button
                 class="p-2 fredoka-light product-hover mt-2 text-sm mr-1"
                 title="Mahogany"
+                id="mahogany-button"
               >
                 Mahogany
               </button>
               <button
                 class="p-2 fredoka-light product-hover mt-2 text-sm m-1"
                 title="Casio"
+                id="casio-button"
               >
                 Casio
               </button>
               <button
                 class="p-2 fredoka-light product-hover mt-2 text-sm m-1"
                 title="Rolex"
+                id="rolex-button"
               >
                 Rolex
               </button>
               <button
                 class="p-2 fredoka-light product-hover mt-2 text-sm m-1"
                 title="G-Shock"
+                id="g-shock-button"
               >
                 G-Shock
               </button>

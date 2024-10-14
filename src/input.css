@@ -120,3 +120,8 @@ option {
   outline: 1px dashed whitesmoke;
   border: 1px solid #000;
 }
+.active {
+  background-color: #232323;
+  color: #fff;
+  border-color: #fff;
+}

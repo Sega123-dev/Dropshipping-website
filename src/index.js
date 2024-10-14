@@ -93,3 +93,69 @@ function fetchUserCountry() {
     });
 }
 window.onload = fetchUserCountry;
+let mahoganyImage = document.querySelector("#mahogany");
+let casioImage = document.querySelector("#casio");
+let rolexImage = document.querySelector("#rolex");
+let gShockImage = document.querySelector("#g-shock");
+let productDisplay = document.querySelector("#product-display");
+let priceDisplay = document.querySelector("#price");
+let mahoganyButton = document.querySelector("#mahogany-button");
+let casioButton = document.querySelector("#casio-button");
+let rolexButton = document.querySelector("#rolex-button");
+let gShockButton = document.querySelector("#g-shock-button");
+function showFirstProduct() {
+    mahoganyImage === null || mahoganyImage === void 0 ? void 0 : mahoganyImage.classList.remove("hidden");
+    casioImage === null || casioImage === void 0 ? void 0 : casioImage.classList.add("hidden");
+    rolexImage === null || rolexImage === void 0 ? void 0 : rolexImage.classList.add("hidden");
+    gShockImage === null || gShockImage === void 0 ? void 0 : gShockImage.classList.add("hidden");
+    mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.classList.add("active");
+}
+window.onload = showFirstProduct();
+mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.addEventListener("click", () => {
+    mahoganyImage === null || mahoganyImage === void 0 ? void 0 : mahoganyImage.classList.remove("hidden");
+    casioImage === null || casioImage === void 0 ? void 0 : casioImage.classList.add("hidden");
+    rolexImage === null || rolexImage === void 0 ? void 0 : rolexImage.classList.add("hidden");
+    gShockImage === null || gShockImage === void 0 ? void 0 : gShockImage.classList.add("hidden");
+    productDisplay.innerText = "Mahogany Brown Leather Watch";
+    priceDisplay.innerText = "$ 250,00";
+    casioButton === null || casioButton === void 0 ? void 0 : casioButton.classList.add("active");
+    mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.classList.remove("active");
+    gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.classList.remove("active");
+    rolexButton === null || rolexButton === void 0 ? void 0 : rolexButton.classList.remove("active");
+});
+casioButton === null || casioButton === void 0 ? void 0 : casioButton.addEventListener("click", () => {
+    mahoganyImage === null || mahoganyImage === void 0 ? void 0 : mahoganyImage.classList.add("hidden");
+    casioImage === null || casioImage === void 0 ? void 0 : casioImage.classList.remove("hidden");
+    rolexImage === null || rolexImage === void 0 ? void 0 : rolexImage.classList.add("hidden");
+    gShockImage === null || gShockImage === void 0 ? void 0 : gShockImage.classList.add("hidden");
+    productDisplay.innerText = "Casio Black Watch for Women";
+    priceDisplay.innerText = "$ 80,00";
+    casioButton === null || casioButton === void 0 ? void 0 : casioButton.classList.add("active");
+    mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.classList.remove("active");
+    gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.classList.remove("active");
+    rolexButton === null || rolexButton === void 0 ? void 0 : rolexButton.classList.remove("active");
+});
+rolexButton === null || rolexButton === void 0 ? void 0 : rolexButton.addEventListener("click", () => {
+    mahoganyImage === null || mahoganyImage === void 0 ? void 0 : mahoganyImage.classList.add("hidden");
+    casioImage === null || casioImage === void 0 ? void 0 : casioImage.classList.add("hidden");
+    rolexImage === null || rolexImage === void 0 ? void 0 : rolexImage.classList.remove("hidden");
+    gShockImage === null || gShockImage === void 0 ? void 0 : gShockImage.classList.add("hidden");
+    productDisplay.innerText = "Rolex Golden Luxury Watch for Women";
+    priceDisplay.innerText = "$ 320,00";
+    casioButton === null || casioButton === void 0 ? void 0 : casioButton.classList.remove("active");
+    mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.classList.remove("active");
+    gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.classList.remove("active");
+    rolexButton === null || rolexButton === void 0 ? void 0 : rolexButton.classList.add("active");
+});
+gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.addEventListener("click", () => {
+    mahoganyImage === null || mahoganyImage === void 0 ? void 0 : mahoganyImage.classList.add("hidden");
+    casioImage === null || casioImage === void 0 ? void 0 : casioImage.classList.add("hidden");
+    rolexImage === null || rolexImage === void 0 ? void 0 : rolexImage.classList.add("hidden");
+    gShockImage === null || gShockImage === void 0 ? void 0 : gShockImage.classList.remove("hidden");
+    productDisplay.innerText = "G-Shock Black and Gold Watch";
+    priceDisplay.innerText = "$ 280,00";
+    casioButton === null || casioButton === void 0 ? void 0 : casioButton.classList.remove("active");
+    mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.classList.remove("active");
+    gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.classList.add("active");
+    rolexButton === null || rolexButton === void 0 ? void 0 : rolexButton.classList.remove("active");
+});
