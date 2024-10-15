@@ -125,3 +125,9 @@ option {
   color: #fff;
   border-color: #fff;
 }
+.register-inputs {
+  border: 1px solid #000 !important;
+}
+.links {
+  margin: 1rem;
+}

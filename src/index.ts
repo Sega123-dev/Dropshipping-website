@@ -87,12 +87,13 @@ async function fetchUserCountry(): Promise<void> {
         option.selected = true;
       }
     });
+    console.log(data.country_name);
   } catch (error) {
     console.error(error);
   }
 }
 
-window.onload = fetchUserCountry;
+fetchUserCountry();
 
 let mahoganyImage = document.querySelector<HTMLImageElement>("#mahogany");
 let casioImage = document.querySelector<HTMLImageElement>("#casio");
@@ -117,7 +118,7 @@ function showFirstProduct(): any {
   mahoganyButton?.classList.add("active");
 }
 
-window.onload = showFirstProduct();
+showFirstProduct();
 
 mahoganyButton?.addEventListener("click", () => {
   mahoganyImage?.classList.remove("hidden");
@@ -175,3 +176,4 @@ gShockButton?.addEventListener("click", () => {
   gShockButton?.classList.add("active");
   rolexButton?.classList.remove("active");
 });
+console.log("Niggers");

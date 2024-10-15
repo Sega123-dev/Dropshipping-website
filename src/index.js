@@ -86,13 +86,14 @@ function fetchUserCountry() {
                     option.selected = true;
                 }
             });
+            console.log(data.country_name);
         }
         catch (error) {
             console.error(error);
         }
     });
 }
-window.onload = fetchUserCountry;
+fetchUserCountry();
 let mahoganyImage = document.querySelector("#mahogany");
 let casioImage = document.querySelector("#casio");
 let rolexImage = document.querySelector("#rolex");
@@ -110,7 +111,7 @@ function showFirstProduct() {
     gShockImage === null || gShockImage === void 0 ? void 0 : gShockImage.classList.add("hidden");
     mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.classList.add("active");
 }
-window.onload = showFirstProduct();
+showFirstProduct();
 mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.addEventListener("click", () => {
     mahoganyImage === null || mahoganyImage === void 0 ? void 0 : mahoganyImage.classList.remove("hidden");
     casioImage === null || casioImage === void 0 ? void 0 : casioImage.classList.add("hidden");
@@ -159,3 +160,4 @@ gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.addEven
     gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.classList.add("active");
     rolexButton === null || rolexButton === void 0 ? void 0 : rolexButton.classList.remove("active");
 });
+console.log("Niggers");
