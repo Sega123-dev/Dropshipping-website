@@ -87,7 +87,6 @@ async function fetchUserCountry(): Promise<void> {
         option.selected = true;
       }
     });
-    console.log(data.country_name);
   } catch (error) {
     console.error(error);
   }
@@ -176,4 +175,15 @@ gShockButton?.addEventListener("click", () => {
   gShockButton?.classList.add("active");
   rolexButton?.classList.remove("active");
 });
-console.log("Niggers");
+
+let cartContainer = document.querySelector<HTMLDivElement>(
+  "[data-cart-container]"
+);
+let hideCart = document.querySelector<HTMLButtonElement>("[data-remove-cart]");
+let showCart = document.querySelector<HTMLAnchorElement>("[data-show-cart]");
+hideCart?.addEventListener("click", () => {
+  cartContainer?.classList.add("hidden");
+});
+showCart?.addEventListener("click", () => {
+  cartContainer?.classList.remove("hidden");
+});

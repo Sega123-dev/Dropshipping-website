@@ -116,6 +116,14 @@ option {
     opacity: 1;
   }
 }
+@keyframes show {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: calc(33.33% - 45px);
+  }
+}
 *:focus {
   outline: 1px dashed whitesmoke;
   border: 1px solid #000;
@@ -130,4 +138,7 @@ option {
 }
 .links {
   margin: 1rem;
+}
+.show-animation {
+  animation: show 0.3s forwards;
 }

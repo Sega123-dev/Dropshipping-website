@@ -35,6 +35,31 @@
   <body onload="showFirstProduct()">
     <main class="relative">
       <section>
+        <div
+          data-cart-container
+          class="fixed bg-white right-0 top-0 h-full items-center show-animation hidden"
+          style="z-index: 9999; width: calc(33.33% - 45px)"
+        >
+          <div
+            class="flex border w-full h-auto"
+            style="border-bottom: 1px solid #cbd5e1"
+          >
+            <h1 class="inline text-2xl pr-0 pt-6 pb-6 pl-6 fredoka-bold">
+              Cart
+            </h1>
+            <span class="text-2xl p-6 pl-2 fredoka-bold">0</span>
+            <button class="text-2xl ml-auto px-6" data-remove-cart>
+              &times;
+            </button>
+          </div>
+          <div class="flex items-center justify-center" style="height: 90%">
+            <p class="fredoka-light" style="color: #232323; font-size: 1.4rem">
+              Your cart is empty
+            </p>
+          </div>
+        </div>
+      </section>
+      <section>
         <button
           data-back-to-top
           class="bottom-0 p-4 m-4 bg-white fixed inline text-center rounded-full z-10"
@@ -111,7 +136,7 @@
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                   <circle cx="12" cy="7" r="4"></circle></svg
               ></a>
-              <a href="#" class="mx-2" title="Cart"
+              <a href="#" class="mx-2" title="Cart" data-show-cart
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="28"

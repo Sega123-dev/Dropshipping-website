@@ -86,7 +86,6 @@ function fetchUserCountry() {
                     option.selected = true;
                 }
             });
-            console.log(data.country_name);
         }
         catch (error) {
             console.error(error);
@@ -160,4 +159,12 @@ gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.addEven
     gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.classList.add("active");
     rolexButton === null || rolexButton === void 0 ? void 0 : rolexButton.classList.remove("active");
 });
-console.log("Niggers");
+let cartContainer = document.querySelector("[data-cart-container]");
+let hideCart = document.querySelector("[data-remove-cart]");
+let showCart = document.querySelector("[data-show-cart]");
+hideCart === null || hideCart === void 0 ? void 0 : hideCart.addEventListener("click", () => {
+    cartContainer === null || cartContainer === void 0 ? void 0 : cartContainer.classList.add("hidden");
+});
+showCart === null || showCart === void 0 ? void 0 : showCart.addEventListener("click", () => {
+    cartContainer === null || cartContainer === void 0 ? void 0 : cartContainer.classList.remove("hidden");
+});
