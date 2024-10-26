@@ -15,9 +15,8 @@ Some pages are not made because this is a demo version that is made just to be a
 - User can checkout products
 - Payments
 - Database
-- Subscribing to news about products
 
-TECHNOLOGIES USED: TypeScript,JavaScript,CSS,HTML,TailwindCSS,Firebase
+TECHNOLOGIES USED: TypeScript,JavaScript,CSS,HTML,TailwindCSS,Firebase.
 
 # Mentions
 
