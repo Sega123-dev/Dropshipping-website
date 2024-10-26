@@ -187,3 +187,5 @@ hideCart?.addEventListener("click", () => {
 showCart?.addEventListener("click", () => {
   cartContainer?.classList.remove("hidden");
 });
+let addToCartButton = document.querySelector<HTMLButtonElement>("[data-atc]");
+function printProductInfo() {}

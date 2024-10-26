@@ -1213,6 +1213,10 @@ option {
   animation: show 0.3s forwards;
 }
 
+input[type="password"] {
+  font-family: Verdana;
+}
+
 .hover\:bg-transparent:hover {
   background-color: transparent;
 }
