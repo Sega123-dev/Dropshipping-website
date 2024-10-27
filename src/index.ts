@@ -1,3 +1,6 @@
+import { initializeApp } from "firebase/app";
+import { collection, getFirestore, getDocs } from "firebase/firestore";
+
 const firebaseConfig = {
   apiKey: "AIzaSyCVQV958Z41fzCxgG9S11QAvBzW1xZy_4o",
   authDomain: "dropshiping-website.firebaseapp.com",
@@ -7,6 +10,15 @@ const firebaseConfig = {
   appId: "1:88265939594:web:2f6292f1ca92a5c3e9eb73",
   measurementId: "G-E3T06T74CL",
 };
+
+//Back-end
+
+initializeApp(firebaseConfig);
+const db = getFirestore();
+const colRef = collection(db, "products");
+
+//Front-end
+
 let slides = document.querySelectorAll<HTMLElement>("[data-slide]");
 let nextButton = document.querySelector<HTMLButtonElement>("#next");
 let previousButton = document.querySelector<HTMLButtonElement>("#prev");
@@ -188,4 +200,3 @@ showCart?.addEventListener("click", () => {
   cartContainer?.classList.remove("hidden");
 });
 let addToCartButton = document.querySelector<HTMLButtonElement>("[data-atc]");
-function printProductInfo() {}

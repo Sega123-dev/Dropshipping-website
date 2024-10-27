@@ -8,6 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+Object.defineProperty(exports, "__esModule", { value: true });
+const app_1 = require("firebase/app");
+const firestore_1 = require("firebase/firestore");
 const firebaseConfig = {
     apiKey: "AIzaSyCVQV958Z41fzCxgG9S11QAvBzW1xZy_4o",
     authDomain: "dropshiping-website.firebaseapp.com",
@@ -17,6 +20,11 @@ const firebaseConfig = {
     appId: "1:88265939594:web:2f6292f1ca92a5c3e9eb73",
     measurementId: "G-E3T06T74CL",
 };
+//Back-end
+(0, app_1.initializeApp)(firebaseConfig);
+const db = (0, firestore_1.getFirestore)();
+const colRef = (0, firestore_1.collection)(db, "products");
+//Front-end
 let slides = document.querySelectorAll("[data-slide]");
 let nextButton = document.querySelector("#next");
 let previousButton = document.querySelector("#prev");
@@ -168,3 +176,4 @@ hideCart === null || hideCart === void 0 ? void 0 : hideCart.addEventListener("c
 showCart === null || showCart === void 0 ? void 0 : showCart.addEventListener("click", () => {
     cartContainer === null || cartContainer === void 0 ? void 0 : cartContainer.classList.remove("hidden");
 });
+let addToCartButton = document.querySelector("[data-atc]");
