@@ -17,6 +17,16 @@ initializeApp(firebaseConfig);
 const db = getFirestore();
 const colRef = collection(db, "products");
 
+getDocs(colRef)
+  .then((snapshot) => {
+    let books: Object[] = [];
+    snapshot.forEach((doc) => {
+      books.push({ ...doc.data(), id: doc.id });
+    });
+    console.log(books);
+  })
+  .catch((error) => console.log(error.message));
+
 //Front-end
 
 let slides = document.querySelectorAll<HTMLElement>("[data-slide]");

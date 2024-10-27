@@ -24,6 +24,15 @@ const firebaseConfig = {
 (0, app_1.initializeApp)(firebaseConfig);
 const db = (0, firestore_1.getFirestore)();
 const colRef = (0, firestore_1.collection)(db, "products");
+(0, firestore_1.getDocs)(colRef)
+    .then((snapshot) => {
+    let books = [];
+    snapshot.forEach((doc) => {
+        books.push(Object.assign(Object.assign({}, doc.data()), { id: doc.id }));
+    });
+    console.log(books);
+})
+    .catch((error) => console.log(error.message));
 //Front-end
 let slides = document.querySelectorAll("[data-slide]");
 let nextButton = document.querySelector("#next");
