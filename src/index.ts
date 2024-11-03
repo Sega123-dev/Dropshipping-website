@@ -1,6 +1,12 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, onSnapshot, doc } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
+import {
+  getFirestore,
+  collection,
+  onSnapshot,
+  addDoc,
+} from "firebase/firestore";
+
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCVQV958Z41fzCxgG9S11QAvBzW1xZy_4o",
@@ -16,16 +22,49 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig);
 const db = getFirestore();
-const colRef = collection(db, "products");
+const auth = getAuth();
 
-let auth = getAuth();
-let books: any = [];
+const colProducts = collection(db, "products");
+const colUsernames = collection(db, "usernames");
+let products: any = [];
+let usernames: any = [];
 
-onSnapshot(colRef, (snapshot) => {
+onSnapshot(colProducts, (snapshot) => {
   snapshot.docs.forEach((doc) => {
-    books.push({ ...doc.data(), id: doc.id });
+    products.push({ ...doc.data(), id: doc.id });
   });
-  console.log(books);
+});
+
+onSnapshot(colUsernames, (snapshot) => {
+  snapshot.docs.forEach((doc) => {
+    usernames.push({ ...doc.data(), id: doc.id });
+  });
+  console.log(usernames);
+});
+
+const signupForm = document.querySelector<HTMLFormElement>(".signup");
+const firstNameInput = document.querySelector<HTMLInputElement>("#fname");
+const lastNameInput = document.querySelector<HTMLInputElement>("#lname");
+
+signupForm?.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const email = signupForm.email.value;
+  const password = signupForm.password.value;
+  const username = firstNameInput?.value + " " + lastNameInput?.value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((cred) => {
+      signupForm.reset();
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+
+  addDoc(colUsernames, {
+    username: username,
+    email: email,
+  });
 });
 
 //Front-end
@@ -148,8 +187,8 @@ mahoganyButton?.addEventListener("click", () => {
   rolexImage?.classList.add("hidden");
   gShockImage?.classList.add("hidden");
 
-  productDisplay!.innerText = books[0].title;
-  priceDisplay!.innerText = books[0].price;
+  productDisplay!.innerText = products[0].title;
+  priceDisplay!.innerText = products[0].price;
 
   casioButton?.classList.remove("active");
   mahoganyButton?.classList.add("active");
@@ -162,8 +201,8 @@ casioButton?.addEventListener("click", () => {
   rolexImage?.classList.add("hidden");
   gShockImage?.classList.add("hidden");
 
-  productDisplay!.innerText = books[1].title;
-  priceDisplay!.innerText = books[1].price;
+  productDisplay!.innerText = products[1].title;
+  priceDisplay!.innerText = products[1].price;
 
   casioButton?.classList.add("active");
   mahoganyButton?.classList.remove("active");
@@ -176,8 +215,8 @@ rolexButton?.addEventListener("click", () => {
   rolexImage?.classList.remove("hidden");
   gShockImage?.classList.add("hidden");
 
-  productDisplay!.innerText = books[2].title;
-  priceDisplay!.innerText = books[2].price;
+  productDisplay!.innerText = products[2].title;
+  priceDisplay!.innerText = products[2].price;
 
   casioButton?.classList.remove("active");
   mahoganyButton?.classList.remove("active");
@@ -190,8 +229,8 @@ gShockButton?.addEventListener("click", () => {
   rolexImage?.classList.add("hidden");
   gShockImage?.classList.remove("hidden");
 
-  productDisplay!.innerText = books[3].title;
-  priceDisplay!.innerText = books[3].price;
+  productDisplay!.innerText = products[3].title;
+  priceDisplay!.innerText = products[3].price;
 
   casioButton?.classList.remove("active");
   mahoganyButton?.classList.remove("active");

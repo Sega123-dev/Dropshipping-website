@@ -24,14 +24,41 @@ const firebaseConfig = {
 //Back-end
 (0, app_1.initializeApp)(firebaseConfig);
 const db = (0, firestore_1.getFirestore)();
-const colRef = (0, firestore_1.collection)(db, "products");
-let auth = (0, auth_1.getAuth)();
-let books = [];
-(0, firestore_1.onSnapshot)(colRef, (snapshot) => {
+const auth = (0, auth_1.getAuth)();
+const colProducts = (0, firestore_1.collection)(db, "products");
+const colUsernames = (0, firestore_1.collection)(db, "usernames");
+let products = [];
+let usernames = [];
+(0, firestore_1.onSnapshot)(colProducts, (snapshot) => {
     snapshot.docs.forEach((doc) => {
-        books.push(Object.assign(Object.assign({}, doc.data()), { id: doc.id }));
+        products.push(Object.assign(Object.assign({}, doc.data()), { id: doc.id }));
     });
-    console.log(books);
+});
+(0, firestore_1.onSnapshot)(colUsernames, (snapshot) => {
+    snapshot.docs.forEach((doc) => {
+        usernames.push(Object.assign(Object.assign({}, doc.data()), { id: doc.id }));
+    });
+    console.log(usernames);
+});
+const signupForm = document.querySelector(".signup");
+const firstNameInput = document.querySelector("#fname");
+const lastNameInput = document.querySelector("#lname");
+signupForm === null || signupForm === void 0 ? void 0 : signupForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = signupForm.email.value;
+    const password = signupForm.password.value;
+    const username = (firstNameInput === null || firstNameInput === void 0 ? void 0 : firstNameInput.value) + " " + (lastNameInput === null || lastNameInput === void 0 ? void 0 : lastNameInput.value);
+    (0, auth_1.createUserWithEmailAndPassword)(auth, email, password)
+        .then((cred) => {
+        signupForm.reset();
+    })
+        .catch((err) => {
+        console.log(err.message);
+    });
+    (0, firestore_1.addDoc)(colUsernames, {
+        username: username,
+        email: email,
+    });
 });
 //Front-end
 let slides = document.querySelectorAll("[data-slide]");
@@ -132,8 +159,8 @@ mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.a
     casioImage === null || casioImage === void 0 ? void 0 : casioImage.classList.add("hidden");
     rolexImage === null || rolexImage === void 0 ? void 0 : rolexImage.classList.add("hidden");
     gShockImage === null || gShockImage === void 0 ? void 0 : gShockImage.classList.add("hidden");
-    productDisplay.innerText = books[0].title;
-    priceDisplay.innerText = books[0].price;
+    productDisplay.innerText = products[0].title;
+    priceDisplay.innerText = products[0].price;
     casioButton === null || casioButton === void 0 ? void 0 : casioButton.classList.remove("active");
     mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.classList.add("active");
     gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.classList.remove("active");
@@ -144,8 +171,8 @@ casioButton === null || casioButton === void 0 ? void 0 : casioButton.addEventLi
     casioImage === null || casioImage === void 0 ? void 0 : casioImage.classList.remove("hidden");
     rolexImage === null || rolexImage === void 0 ? void 0 : rolexImage.classList.add("hidden");
     gShockImage === null || gShockImage === void 0 ? void 0 : gShockImage.classList.add("hidden");
-    productDisplay.innerText = books[1].title;
-    priceDisplay.innerText = books[1].price;
+    productDisplay.innerText = products[1].title;
+    priceDisplay.innerText = products[1].price;
     casioButton === null || casioButton === void 0 ? void 0 : casioButton.classList.add("active");
     mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.classList.remove("active");
     gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.classList.remove("active");
@@ -156,8 +183,8 @@ rolexButton === null || rolexButton === void 0 ? void 0 : rolexButton.addEventLi
     casioImage === null || casioImage === void 0 ? void 0 : casioImage.classList.add("hidden");
     rolexImage === null || rolexImage === void 0 ? void 0 : rolexImage.classList.remove("hidden");
     gShockImage === null || gShockImage === void 0 ? void 0 : gShockImage.classList.add("hidden");
-    productDisplay.innerText = books[2].title;
-    priceDisplay.innerText = books[2].price;
+    productDisplay.innerText = products[2].title;
+    priceDisplay.innerText = products[2].price;
     casioButton === null || casioButton === void 0 ? void 0 : casioButton.classList.remove("active");
     mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.classList.remove("active");
     gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.classList.remove("active");
@@ -168,8 +195,8 @@ gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.addEven
     casioImage === null || casioImage === void 0 ? void 0 : casioImage.classList.add("hidden");
     rolexImage === null || rolexImage === void 0 ? void 0 : rolexImage.classList.add("hidden");
     gShockImage === null || gShockImage === void 0 ? void 0 : gShockImage.classList.remove("hidden");
-    productDisplay.innerText = books[3].title;
-    priceDisplay.innerText = books[3].price;
+    productDisplay.innerText = products[3].title;
+    priceDisplay.innerText = products[3].price;
     casioButton === null || casioButton === void 0 ? void 0 : casioButton.classList.remove("active");
     mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.classList.remove("active");
     gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.classList.add("active");
