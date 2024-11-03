@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = require("firebase/app");
 const firestore_1 = require("firebase/firestore");
+const auth_1 = require("firebase/auth");
 const firebaseConfig = {
     apiKey: "AIzaSyCVQV958Z41fzCxgG9S11QAvBzW1xZy_4o",
     authDomain: "dropshiping-website.firebaseapp.com",
@@ -24,6 +25,7 @@ const firebaseConfig = {
 (0, app_1.initializeApp)(firebaseConfig);
 const db = (0, firestore_1.getFirestore)();
 const colRef = (0, firestore_1.collection)(db, "products");
+let auth = (0, auth_1.getAuth)();
 let books = [];
 (0, firestore_1.onSnapshot)(colRef, (snapshot) => {
     snapshot.docs.forEach((doc) => {

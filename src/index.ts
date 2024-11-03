@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, onSnapshot, doc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCVQV958Z41fzCxgG9S11QAvBzW1xZy_4o",
@@ -16,7 +17,10 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 const db = getFirestore();
 const colRef = collection(db, "products");
+
+let auth = getAuth();
 let books: any = [];
+
 onSnapshot(colRef, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     books.push({ ...doc.data(), id: doc.id });
