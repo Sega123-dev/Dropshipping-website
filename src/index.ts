@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { collection, getFirestore, getDocs } from "firebase/firestore";
+import { getFirestore, collection, onSnapshot, doc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCVQV958Z41fzCxgG9S11QAvBzW1xZy_4o",
@@ -16,16 +16,13 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 const db = getFirestore();
 const colRef = collection(db, "products");
-
-getDocs(colRef)
-  .then((snapshot) => {
-    let books: Object[] = [];
-    snapshot.forEach((doc) => {
-      books.push({ ...doc.data(), id: doc.id });
-    });
-    console.log(books);
-  })
-  .catch((error) => console.log(error.message));
+let books: any = [];
+onSnapshot(colRef, (snapshot) => {
+  snapshot.docs.forEach((doc) => {
+    books.push({ ...doc.data(), id: doc.id });
+  });
+  console.log(books);
+});
 
 //Front-end
 
@@ -53,8 +50,9 @@ function showSlides(n: number): any {
 nextButton?.addEventListener("click", () => plusSlides(1));
 previousButton?.addEventListener("click", () => plusSlides(-1));
 
-let backToTopButton: HTMLButtonElement | null =
-  document.querySelector("[data-back-to-top]");
+let backToTopButton = document.querySelector(
+  "[data-back-to-top]"
+) as HTMLButtonElement;
 
 window.onscroll = (): void => {
   showBTTButton();
@@ -77,7 +75,6 @@ backToTopButton?.addEventListener("click", () => {
 
 let FAQs = document.querySelectorAll("[data-faq]");
 let FAQAnswers = document.querySelectorAll<HTMLElement>("[data-answer]");
-let secondFAQ: Element = FAQs[2];
 
 function FAQsFunctionImplement(): void {
   for (let i = 0; i < FAQs.length; i++) {
@@ -147,8 +144,8 @@ mahoganyButton?.addEventListener("click", () => {
   rolexImage?.classList.add("hidden");
   gShockImage?.classList.add("hidden");
 
-  productDisplay!.innerText = "Mahogany Brown Leather Watch";
-  priceDisplay!.innerText = "$ 250,00";
+  productDisplay!.innerText = books[0].title;
+  priceDisplay!.innerText = books[0].price;
 
   casioButton?.classList.remove("active");
   mahoganyButton?.classList.add("active");
@@ -161,8 +158,8 @@ casioButton?.addEventListener("click", () => {
   rolexImage?.classList.add("hidden");
   gShockImage?.classList.add("hidden");
 
-  productDisplay!.innerText = "Casio Black Watch for Women";
-  priceDisplay!.innerText = "$ 80,00";
+  productDisplay!.innerText = books[1].title;
+  priceDisplay!.innerText = books[1].price;
 
   casioButton?.classList.add("active");
   mahoganyButton?.classList.remove("active");
@@ -175,8 +172,8 @@ rolexButton?.addEventListener("click", () => {
   rolexImage?.classList.remove("hidden");
   gShockImage?.classList.add("hidden");
 
-  productDisplay!.innerText = "Rolex Golden Luxury Watch for Women";
-  priceDisplay!.innerText = "$ 320,00";
+  productDisplay!.innerText = books[2].title;
+  priceDisplay!.innerText = books[2].price;
 
   casioButton?.classList.remove("active");
   mahoganyButton?.classList.remove("active");
@@ -189,8 +186,8 @@ gShockButton?.addEventListener("click", () => {
   rolexImage?.classList.add("hidden");
   gShockImage?.classList.remove("hidden");
 
-  productDisplay!.innerText = "G-Shock Black and Gold Watch";
-  priceDisplay!.innerText = "$ 280,00";
+  productDisplay!.innerText = books[3].title;
+  priceDisplay!.innerText = books[3].price;
 
   casioButton?.classList.remove("active");
   mahoganyButton?.classList.remove("active");

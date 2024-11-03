@@ -24,15 +24,13 @@ const firebaseConfig = {
 (0, app_1.initializeApp)(firebaseConfig);
 const db = (0, firestore_1.getFirestore)();
 const colRef = (0, firestore_1.collection)(db, "products");
-(0, firestore_1.getDocs)(colRef)
-    .then((snapshot) => {
-    let books = [];
-    snapshot.forEach((doc) => {
+let books = [];
+(0, firestore_1.onSnapshot)(colRef, (snapshot) => {
+    snapshot.docs.forEach((doc) => {
         books.push(Object.assign(Object.assign({}, doc.data()), { id: doc.id }));
     });
     console.log(books);
-})
-    .catch((error) => console.log(error.message));
+});
 //Front-end
 let slides = document.querySelectorAll("[data-slide]");
 let nextButton = document.querySelector("#next");
@@ -73,7 +71,6 @@ backToTopButton === null || backToTopButton === void 0 ? void 0 : backToTopButto
 });
 let FAQs = document.querySelectorAll("[data-faq]");
 let FAQAnswers = document.querySelectorAll("[data-answer]");
-let secondFAQ = FAQs[2];
 function FAQsFunctionImplement() {
     for (let i = 0; i < FAQs.length; i++) {
         FAQs[i].addEventListener("click", () => {
@@ -133,8 +130,8 @@ mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.a
     casioImage === null || casioImage === void 0 ? void 0 : casioImage.classList.add("hidden");
     rolexImage === null || rolexImage === void 0 ? void 0 : rolexImage.classList.add("hidden");
     gShockImage === null || gShockImage === void 0 ? void 0 : gShockImage.classList.add("hidden");
-    productDisplay.innerText = "Mahogany Brown Leather Watch";
-    priceDisplay.innerText = "$ 250,00";
+    productDisplay.innerText = books[0].title;
+    priceDisplay.innerText = books[0].price;
     casioButton === null || casioButton === void 0 ? void 0 : casioButton.classList.remove("active");
     mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.classList.add("active");
     gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.classList.remove("active");
@@ -145,8 +142,8 @@ casioButton === null || casioButton === void 0 ? void 0 : casioButton.addEventLi
     casioImage === null || casioImage === void 0 ? void 0 : casioImage.classList.remove("hidden");
     rolexImage === null || rolexImage === void 0 ? void 0 : rolexImage.classList.add("hidden");
     gShockImage === null || gShockImage === void 0 ? void 0 : gShockImage.classList.add("hidden");
-    productDisplay.innerText = "Casio Black Watch for Women";
-    priceDisplay.innerText = "$ 80,00";
+    productDisplay.innerText = books[1].title;
+    priceDisplay.innerText = books[1].price;
     casioButton === null || casioButton === void 0 ? void 0 : casioButton.classList.add("active");
     mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.classList.remove("active");
     gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.classList.remove("active");
@@ -157,8 +154,8 @@ rolexButton === null || rolexButton === void 0 ? void 0 : rolexButton.addEventLi
     casioImage === null || casioImage === void 0 ? void 0 : casioImage.classList.add("hidden");
     rolexImage === null || rolexImage === void 0 ? void 0 : rolexImage.classList.remove("hidden");
     gShockImage === null || gShockImage === void 0 ? void 0 : gShockImage.classList.add("hidden");
-    productDisplay.innerText = "Rolex Golden Luxury Watch for Women";
-    priceDisplay.innerText = "$ 320,00";
+    productDisplay.innerText = books[2].title;
+    priceDisplay.innerText = books[2].price;
     casioButton === null || casioButton === void 0 ? void 0 : casioButton.classList.remove("active");
     mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.classList.remove("active");
     gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.classList.remove("active");
@@ -169,8 +166,8 @@ gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.addEven
     casioImage === null || casioImage === void 0 ? void 0 : casioImage.classList.add("hidden");
     rolexImage === null || rolexImage === void 0 ? void 0 : rolexImage.classList.add("hidden");
     gShockImage === null || gShockImage === void 0 ? void 0 : gShockImage.classList.remove("hidden");
-    productDisplay.innerText = "G-Shock Black and Gold Watch";
-    priceDisplay.innerText = "$ 280,00";
+    productDisplay.innerText = books[3].title;
+    priceDisplay.innerText = books[3].price;
     casioButton === null || casioButton === void 0 ? void 0 : casioButton.classList.remove("active");
     mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.classList.remove("active");
     gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.classList.add("active");
