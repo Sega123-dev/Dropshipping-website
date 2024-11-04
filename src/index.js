@@ -60,6 +60,20 @@ signupForm === null || signupForm === void 0 ? void 0 : signupForm.addEventListe
         email: email,
     });
 });
+const loginForm = document.querySelector(".login");
+loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = loginForm.email.value;
+    const password = loginForm.password.value;
+    (0, auth_1.signInWithEmailAndPassword)(auth, email, password)
+        .then((cred) => {
+        console.log("user logged in:", cred.user);
+        loginForm.reset();
+    })
+        .catch((err) => {
+        console.log(err.message);
+    });
+});
 //Front-end
 let slides = document.querySelectorAll("[data-slide]");
 let nextButton = document.querySelector("#next");

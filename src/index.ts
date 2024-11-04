@@ -6,7 +6,11 @@ import {
   addDoc,
 } from "firebase/firestore";
 
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCVQV958Z41fzCxgG9S11QAvBzW1xZy_4o",
@@ -65,6 +69,23 @@ signupForm?.addEventListener("submit", (e) => {
     username: username,
     email: email,
   });
+});
+
+const loginForm = document.querySelector<HTMLFormElement>(".login");
+loginForm?.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const email = loginForm.email.value;
+  const password = loginForm.password.value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then((cred) => {
+      console.log("user logged in:", cred.user);
+      loginForm.reset();
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 });
 
 //Front-end
