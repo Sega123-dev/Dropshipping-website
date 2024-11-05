@@ -38,16 +38,15 @@ let usernames = [];
     snapshot.docs.forEach((doc) => {
         usernames.push(Object.assign(Object.assign({}, doc.data()), { id: doc.id }));
     });
-    console.log(usernames);
 });
 const signupForm = document.querySelector(".signup");
 const firstNameInput = document.querySelector("#fname");
 const lastNameInput = document.querySelector("#lname");
+const username = (firstNameInput === null || firstNameInput === void 0 ? void 0 : firstNameInput.value) + " " + (lastNameInput === null || lastNameInput === void 0 ? void 0 : lastNameInput.value);
 signupForm === null || signupForm === void 0 ? void 0 : signupForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const email = signupForm.email.value;
     const password = signupForm.password.value;
-    const username = (firstNameInput === null || firstNameInput === void 0 ? void 0 : firstNameInput.value) + " " + (lastNameInput === null || lastNameInput === void 0 ? void 0 : lastNameInput.value);
     (0, auth_1.createUserWithEmailAndPassword)(auth, email, password)
         .then((cred) => {
         signupForm.reset();
@@ -60,6 +59,7 @@ signupForm === null || signupForm === void 0 ? void 0 : signupForm.addEventListe
         email: email,
     });
 });
+console.log(username);
 const loginForm = document.querySelector(".login");
 loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -67,7 +67,6 @@ loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener
     const password = loginForm.password.value;
     (0, auth_1.signInWithEmailAndPassword)(auth, email, password)
         .then((cred) => {
-        console.log("user logged in:", cred.user);
         loginForm.reset();
     })
         .catch((err) => {
@@ -226,3 +225,20 @@ showCart === null || showCart === void 0 ? void 0 : showCart.addEventListener("c
     cartContainer === null || cartContainer === void 0 ? void 0 : cartContainer.classList.remove("hidden");
 });
 let addToCartButton = document.querySelector("[data-atc]");
+let reedemCodes = ["AJXD72", "S36A21", "N1AQ77"];
+let codeReedemed = false;
+let redeemCodeInput = document.querySelector("[data-redeem-code-input]");
+let redeemCodeButton = document.querySelector("[data-redeem-code-button]");
+redeemCodeButton === null || redeemCodeButton === void 0 ? void 0 : redeemCodeButton.addEventListener("click", () => {
+    for (let i = 0; i < reedemCodes.length; i++) {
+        if ((redeemCodeInput === null || redeemCodeInput === void 0 ? void 0 : redeemCodeInput.value) === reedemCodes[i]) {
+            codeReedemed = true;
+            console.log("Redeem code is valid");
+            break;
+        }
+        else {
+            console.log("Invalid redeem code");
+            break;
+        }
+    }
+});

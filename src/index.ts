@@ -10,6 +10,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  onAuthStateChanged,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -43,19 +44,19 @@ onSnapshot(colUsernames, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     usernames.push({ ...doc.data(), id: doc.id });
   });
-  console.log(usernames);
 });
 
 const signupForm = document.querySelector<HTMLFormElement>(".signup");
 const firstNameInput = document.querySelector<HTMLInputElement>("#fname");
 const lastNameInput = document.querySelector<HTMLInputElement>("#lname");
 
+const username = firstNameInput?.value + " " + lastNameInput?.value;
+
 signupForm?.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const email = signupForm.email.value;
   const password = signupForm.password.value;
-  const username = firstNameInput?.value + " " + lastNameInput?.value;
 
   createUserWithEmailAndPassword(auth, email, password)
     .then((cred) => {
@@ -70,7 +71,7 @@ signupForm?.addEventListener("submit", (e) => {
     email: email,
   });
 });
-
+console.log(username);
 const loginForm = document.querySelector<HTMLFormElement>(".login");
 loginForm?.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -80,7 +81,6 @@ loginForm?.addEventListener("submit", (e) => {
 
   signInWithEmailAndPassword(auth, email, password)
     .then((cred) => {
-      console.log("user logged in:", cred.user);
       loginForm.reset();
     })
     .catch((err) => {
@@ -271,3 +271,25 @@ showCart?.addEventListener("click", () => {
   cartContainer?.classList.remove("hidden");
 });
 let addToCartButton = document.querySelector<HTMLButtonElement>("[data-atc]");
+
+let reedemCodes: string[] = ["AJXD72", "S36A21", "N1AQ77"];
+let codeReedemed = false;
+let redeemCodeInput = document.querySelector<HTMLInputElement>(
+  "[data-redeem-code-input]"
+);
+let redeemCodeButton = document.querySelector<HTMLButtonElement>(
+  "[data-redeem-code-button]"
+);
+
+redeemCodeButton?.addEventListener("click", () => {
+  for (let i = 0; i < reedemCodes.length; i++) {
+    if (redeemCodeInput?.value === reedemCodes[i]) {
+      codeReedemed = true;
+      console.log("Redeem code is valid");
+      break;
+    } else {
+      console.log("Invalid redeem code");
+      break;
+    }
+  }
+});
