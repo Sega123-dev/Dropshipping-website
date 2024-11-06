@@ -16,7 +16,7 @@ Some pages are not made because this is a demo version that is made just to be a
 - Payments
 - Database
 - Redeem Codes
-- 
+  
 TECHNOLOGIES USED: TypeScript,JavaScript,CSS,HTML,TailwindCSS,Firebase.
 
 # Mentions
