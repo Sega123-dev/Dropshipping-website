@@ -4,13 +4,14 @@ import {
   collection,
   onSnapshot,
   addDoc,
+  doc,
+  updateDoc,
 } from "firebase/firestore";
 
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -31,6 +32,8 @@ const auth = getAuth();
 
 const colProducts = collection(db, "products");
 const colUsernames = collection(db, "usernames");
+const colRedeemRef = doc(db, "booleans", "gB1xtzKVA4OGM4yx8gim");
+
 let products: any = [];
 let usernames: any = [];
 
@@ -71,6 +74,7 @@ signupForm?.addEventListener("submit", (e) => {
     email: email,
   });
 });
+
 console.log(username);
 const loginForm = document.querySelector<HTMLFormElement>(".login");
 loginForm?.addEventListener("submit", (e) => {
@@ -87,7 +91,6 @@ loginForm?.addEventListener("submit", (e) => {
       console.log(err.message);
     });
 });
-
 //Front-end
 
 let slides = document.querySelectorAll<HTMLElement>("[data-slide]");
@@ -273,22 +276,30 @@ showCart?.addEventListener("click", () => {
 let addToCartButton = document.querySelector<HTMLButtonElement>("[data-atc]");
 
 let reedemCodes: string[] = ["AJXD72", "S36A21", "N1AQ77"];
-let codeReedemed = false;
 let redeemCodeInput = document.querySelector<HTMLInputElement>(
   "[data-redeem-code-input]"
 );
+let isCodeRedeemed = false;
 let redeemCodeButton = document.querySelector<HTMLButtonElement>(
   "[data-redeem-code-button]"
 );
+let validReedemCodeText =
+  document.querySelector<HTMLParagraphElement>("[data-valid]");
+
+let invalidReedemCodeText =
+  document.querySelector<HTMLParagraphElement>("[data-invalid]");
 
 redeemCodeButton?.addEventListener("click", () => {
   for (let i = 0; i < reedemCodes.length; i++) {
     if (redeemCodeInput?.value === reedemCodes[i]) {
-      codeReedemed = true;
-      console.log("Redeem code is valid");
+      validReedemCodeText?.classList.remove("hidden");
+      updateDoc(colRedeemRef, {
+        isCodeRedeemed: true,
+      });
+      isCodeRedeemed = true;
       break;
     } else {
-      console.log("Invalid redeem code");
+      invalidReedemCodeText?.classList.remove("hidden");
       break;
     }
   }

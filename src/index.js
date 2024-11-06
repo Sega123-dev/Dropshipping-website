@@ -27,6 +27,7 @@ const db = (0, firestore_1.getFirestore)();
 const auth = (0, auth_1.getAuth)();
 const colProducts = (0, firestore_1.collection)(db, "products");
 const colUsernames = (0, firestore_1.collection)(db, "usernames");
+const colRedeemRef = (0, firestore_1.doc)(db, "booleans", "gB1xtzKVA4OGM4yx8gim");
 let products = [];
 let usernames = [];
 (0, firestore_1.onSnapshot)(colProducts, (snapshot) => {
@@ -226,18 +227,23 @@ showCart === null || showCart === void 0 ? void 0 : showCart.addEventListener("c
 });
 let addToCartButton = document.querySelector("[data-atc]");
 let reedemCodes = ["AJXD72", "S36A21", "N1AQ77"];
-let codeReedemed = false;
 let redeemCodeInput = document.querySelector("[data-redeem-code-input]");
+let isCodeRedeemed = false;
 let redeemCodeButton = document.querySelector("[data-redeem-code-button]");
+let validReedemCodeText = document.querySelector("[data-valid]");
+let invalidReedemCodeText = document.querySelector("[data-invalid]");
 redeemCodeButton === null || redeemCodeButton === void 0 ? void 0 : redeemCodeButton.addEventListener("click", () => {
     for (let i = 0; i < reedemCodes.length; i++) {
         if ((redeemCodeInput === null || redeemCodeInput === void 0 ? void 0 : redeemCodeInput.value) === reedemCodes[i]) {
-            codeReedemed = true;
-            console.log("Redeem code is valid");
+            validReedemCodeText === null || validReedemCodeText === void 0 ? void 0 : validReedemCodeText.classList.remove("hidden");
+            (0, firestore_1.updateDoc)(colRedeemRef, {
+                isCodeRedeemed: true,
+            });
+            isCodeRedeemed = true;
             break;
         }
         else {
-            console.log("Invalid redeem code");
+            invalidReedemCodeText === null || invalidReedemCodeText === void 0 ? void 0 : invalidReedemCodeText.classList.remove("hidden");
             break;
         }
     }

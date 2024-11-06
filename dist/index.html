@@ -1250,15 +1250,22 @@
               class="w-full p-2 rounded-full mt-4 outline-none cursor-pointer text-black reedem-input"
               data-redeem-code-input
             />
+
             <div class="flex justify-center">
               <button
-                class="p-3 bg-white rounded-full text-black px-6 mt-4"
+                class="p-3 bg-white rounded-full text-black px-6 mt-4 block"
                 title="Redeem this code to instantly save 15% on your Purchase!"
                 data-redeem-code-button
               >
                 REEDEM
               </button>
             </div>
+            <p class="fredoka text-center hidden" data-valid>
+              Code Successfully Redeemed!
+            </p>
+            <p class="fredoka text-center hidden" data-invalid>
+              Invalid Reedem Code!
+            </p>
           </div>
         </div>
       </section>
