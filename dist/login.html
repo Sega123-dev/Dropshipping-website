@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Account</title>
     <link rel="stylesheet" href="output.css" />
+    <script type="module" src="bundle.js" defer></script>
   </head>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
@@ -48,11 +49,11 @@
             &times;
           </button>
         </div>
-        <div class="flex items-center justify-center" style="height: 90%">
-          <p class="fredoka-light" style="color: #232323; font-size: 1.4rem">
-            Your cart is empty
-          </p>
-        </div>
+        <div
+          class="flex items-center justify-center"
+          style="height: 90%"
+          data-products
+        ></div>
       </div>
     </section>
     <section>
@@ -762,11 +763,9 @@
             <select
               class="bg-transparent outline-none light-grey m-2 flex cursor-pointer"
             >
-              <option value="Afghanistan" class="fredoka-light">
-                Afghanistan
-              </option>
-              <option value="Åland Islands" data-option>Åland Islands</option>
-              <option value="Albania" data-option>Albania</option>
+              <option value="Afghanistan">Afghanistan</option>
+              <option value="Åland Islands">Åland Islands</option>
+              <option value="Albania">Albania</option>
               <option value="Algeria">Algeria</option>
               <option value="American Samoa">American Samoa</option>
               <option value="Andorra">Andorra</option>

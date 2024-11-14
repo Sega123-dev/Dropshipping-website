@@ -47,13 +47,21 @@
             <h1 class="inline text-2xl pr-0 pt-6 pb-6 pl-6 fredoka-bold">
               Cart
             </h1>
-            <span class="text-2xl p-6 pl-2 fredoka-bold">0</span>
+            <span class="text-2xl p-6 pl-2 fredoka-bold" data-number>0</span>
             <button class="text-2xl ml-auto px-6" data-remove-cart>
               &times;
             </button>
           </div>
-          <div class="flex items-center justify-center" style="height: 90%">
-            <p class="fredoka-light" style="color: #232323; font-size: 1.4rem">
+          <div
+            class="flex items-center justify-center"
+            data-products
+            style="height: 90%"
+          >
+            <p
+              class="fredoka-light"
+              style="color: #232323; font-size: 1.4rem"
+              data-cart-empty
+            >
               Your cart is empty
             </p>
           </div>
@@ -1846,9 +1854,7 @@
               <select
                 class="bg-transparent outline-none light-grey m-2 flex cursor-pointer"
               >
-                <option value="Afghanistan" class="fredoka-light">
-                  Afghanistan
-                </option>
+                <option value="Afghanistan">Afghanistan</option>
                 <option value="Åland Islands">Åland Islands</option>
                 <option value="Albania">Albania</option>
                 <option value="Algeria">Algeria</option>

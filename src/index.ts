@@ -63,6 +63,7 @@ signupForm?.addEventListener("submit", (e) => {
 
   createUserWithEmailAndPassword(auth, email, password)
     .then((cred) => {
+      console.log("User created: " + cred);
       signupForm.reset();
     })
     .catch((err) => {
@@ -86,6 +87,7 @@ loginForm?.addEventListener("submit", (e) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((cred) => {
       loginForm.reset();
+      console.log("User logged in: " + cred);
     })
     .catch((err) => {
       console.log(err.message);
@@ -261,20 +263,6 @@ gShockButton?.addEventListener("click", () => {
   gShockButton?.classList.add("active");
   rolexButton?.classList.remove("active");
 });
-
-let cartContainer = document.querySelector<HTMLDivElement>(
-  "[data-cart-container]"
-);
-let hideCart = document.querySelector<HTMLButtonElement>("[data-remove-cart]");
-let showCart = document.querySelector<HTMLAnchorElement>("[data-show-cart]");
-hideCart?.addEventListener("click", () => {
-  cartContainer?.classList.add("hidden");
-});
-showCart?.addEventListener("click", () => {
-  cartContainer?.classList.remove("hidden");
-});
-let addToCartButton = document.querySelector<HTMLButtonElement>("[data-atc]");
-
 let reedemCodes: string[] = ["AJXD72", "S36A21", "N1AQ77"];
 let redeemCodeInput = document.querySelector<HTMLInputElement>(
   "[data-redeem-code-input]"
@@ -304,3 +292,68 @@ redeemCodeButton?.addEventListener("click", () => {
     }
   }
 });
+
+let cartContainer = document.querySelector<HTMLDivElement>(
+  "[data-cart-container]"
+);
+let hideCart = document.querySelector<HTMLButtonElement>("[data-remove-cart]");
+let showCart = document.querySelector<HTMLAnchorElement>("[data-show-cart]");
+hideCart?.addEventListener("click", () => {
+  cartContainer?.classList.add("hidden");
+});
+showCart?.addEventListener("click", () => {
+  cartContainer?.classList.remove("hidden");
+});
+let addToCartButton = document.querySelector<HTMLButtonElement>("[data-atc]");
+let productsContainer =
+  document.querySelector<HTMLDivElement>("[data-products]");
+
+let emptyCartMessage =
+  document.querySelector<HTMLParagraphElement>("[data-cart-empty]");
+
+addToCartButton?.addEventListener("click", () => {
+  let productName =
+    document.querySelector<HTMLHeadingElement>("#product-display");
+  let productPrice = document.querySelector<HTMLParagraphElement>("#price");
+
+  addProduct(productName!, productPrice!);
+});
+
+function addProduct(name: HTMLHeadingElement, price: HTMLParagraphElement) {
+  cartContainer?.classList.remove("hidden");
+  emptyCartMessage?.classList.add("hidden");
+
+  let productName: string = name.innerText;
+  let productPrice: string = price.innerText;
+
+  let numberOfProductsInTheCartContainer =
+    document.querySelector<HTMLSpanElement>("[data-number]");
+
+  let cartNumber: number = Number(
+    numberOfProductsInTheCartContainer?.innerText
+  );
+
+  let template = `<div class="mx-auto p-2">
+              <div class="flex align-items" style="width:100%; min-height:100px">
+                <div class="flex-grow">
+                  <img src="#" alt=${productName} width="100" height="100" />
+                </div>
+                <div style="flex-grow: 3">
+                  <h1 class="text-base fredoka-bold">${productName}</h1>
+                  <p class="fredoka">${productPrice}</p>
+                </div>
+              </div>
+            </div>`;
+
+  productsContainer!.classList.remove("items-center");
+  productsContainer!.classList.remove("flex");
+
+  cartNumber = cartNumber + 1;
+  numberOfProductsInTheCartContainer!.innerText = cartNumber.toString();
+  productsContainer!.innerHTML += template;
+}
+if (productsContainer!.children.length < 1) {
+  productsContainer!.classList.add("items-center");
+  productsContainer!.classList.add("flex");
+  emptyCartMessage?.classList.remove("hidden");
+}

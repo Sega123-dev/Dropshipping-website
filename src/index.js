@@ -50,6 +50,7 @@ signupForm === null || signupForm === void 0 ? void 0 : signupForm.addEventListe
     const password = signupForm.password.value;
     (0, auth_1.createUserWithEmailAndPassword)(auth, email, password)
         .then((cred) => {
+        console.log("User created: " + cred);
         signupForm.reset();
     })
         .catch((err) => {
@@ -69,6 +70,7 @@ loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener
     (0, auth_1.signInWithEmailAndPassword)(auth, email, password)
         .then((cred) => {
         loginForm.reset();
+        console.log("User logged in: " + cred);
     })
         .catch((err) => {
         console.log(err.message);
@@ -216,16 +218,6 @@ gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.addEven
     gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.classList.add("active");
     rolexButton === null || rolexButton === void 0 ? void 0 : rolexButton.classList.remove("active");
 });
-let cartContainer = document.querySelector("[data-cart-container]");
-let hideCart = document.querySelector("[data-remove-cart]");
-let showCart = document.querySelector("[data-show-cart]");
-hideCart === null || hideCart === void 0 ? void 0 : hideCart.addEventListener("click", () => {
-    cartContainer === null || cartContainer === void 0 ? void 0 : cartContainer.classList.add("hidden");
-});
-showCart === null || showCart === void 0 ? void 0 : showCart.addEventListener("click", () => {
-    cartContainer === null || cartContainer === void 0 ? void 0 : cartContainer.classList.remove("hidden");
-});
-let addToCartButton = document.querySelector("[data-atc]");
 let reedemCodes = ["AJXD72", "S36A21", "N1AQ77"];
 let redeemCodeInput = document.querySelector("[data-redeem-code-input]");
 let isCodeRedeemed = false;
@@ -248,3 +240,49 @@ redeemCodeButton === null || redeemCodeButton === void 0 ? void 0 : redeemCodeBu
         }
     }
 });
+let cartContainer = document.querySelector("[data-cart-container]");
+let hideCart = document.querySelector("[data-remove-cart]");
+let showCart = document.querySelector("[data-show-cart]");
+hideCart === null || hideCart === void 0 ? void 0 : hideCart.addEventListener("click", () => {
+    cartContainer === null || cartContainer === void 0 ? void 0 : cartContainer.classList.add("hidden");
+});
+showCart === null || showCart === void 0 ? void 0 : showCart.addEventListener("click", () => {
+    cartContainer === null || cartContainer === void 0 ? void 0 : cartContainer.classList.remove("hidden");
+});
+let addToCartButton = document.querySelector("[data-atc]");
+let productsContainer = document.querySelector("[data-products]");
+let emptyCartMessage = document.querySelector("[data-cart-empty]");
+addToCartButton === null || addToCartButton === void 0 ? void 0 : addToCartButton.addEventListener("click", () => {
+    let productName = document.querySelector("#product-display");
+    let productPrice = document.querySelector("#price");
+    addProduct(productName, productPrice);
+});
+function addProduct(name, price) {
+    cartContainer === null || cartContainer === void 0 ? void 0 : cartContainer.classList.remove("hidden");
+    emptyCartMessage === null || emptyCartMessage === void 0 ? void 0 : emptyCartMessage.classList.add("hidden");
+    let productName = name.innerText;
+    let productPrice = price.innerText;
+    let numberOfProductsInTheCartContainer = document.querySelector("[data-number]");
+    let cartNumber = Number(numberOfProductsInTheCartContainer === null || numberOfProductsInTheCartContainer === void 0 ? void 0 : numberOfProductsInTheCartContainer.innerText);
+    let template = `<div class="mx-auto p-2">
+              <div class="flex align-items" style="width:100%; min-height:100px">
+                <div class="flex-grow">
+                  <img src="#" alt=${productName} width="100" height="100" />
+                </div>
+                <div style="flex-grow: 3">
+                  <h1 class="text-base fredoka-bold">${productName}</h1>
+                  <p class="fredoka">${productPrice}</p>
+                </div>
+              </div>
+            </div>`;
+    productsContainer.classList.remove("items-center");
+    productsContainer.classList.remove("flex");
+    cartNumber = cartNumber + 1;
+    numberOfProductsInTheCartContainer.innerText = cartNumber.toString();
+    productsContainer.innerHTML += template;
+}
+if (productsContainer.children.length < 1) {
+    productsContainer.classList.add("items-center");
+    productsContainer.classList.add("flex");
+    emptyCartMessage === null || emptyCartMessage === void 0 ? void 0 : emptyCartMessage.classList.remove("hidden");
+}
