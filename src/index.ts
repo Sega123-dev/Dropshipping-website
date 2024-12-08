@@ -116,8 +116,8 @@ function showSlides(n: number): any {
   slides[slideIndex - 1].classList.remove("hidden");
 }
 
-nextButton?.addEventListener("click", () => plusSlides(1));
-previousButton?.addEventListener("click", () => plusSlides(-1));
+nextButton?.addEventListener("click", (): void => plusSlides(1));
+previousButton?.addEventListener("click", (): void => plusSlides(-1));
 
 let backToTopButton = document.querySelector(
   "[data-back-to-top]"
@@ -137,7 +137,7 @@ function showBTTButton(): void {
     backToTopButton!.style.display = "none";
   }
 }
-backToTopButton?.addEventListener("click", () => {
+backToTopButton?.addEventListener("click", (): void => {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 });
@@ -277,7 +277,7 @@ let validReedemCodeText =
 let invalidReedemCodeText =
   document.querySelector<HTMLParagraphElement>("[data-invalid]");
 
-redeemCodeButton?.addEventListener("click", () => {
+redeemCodeButton?.addEventListener("click", (): void => {
   for (let i = 0; i < reedemCodes.length; i++) {
     if (redeemCodeInput?.value === reedemCodes[i]) {
       validReedemCodeText?.classList.remove("hidden");
@@ -298,10 +298,10 @@ let cartContainer = document.querySelector<HTMLDivElement>(
 );
 let hideCart = document.querySelector<HTMLButtonElement>("[data-remove-cart]");
 let showCart = document.querySelector<HTMLAnchorElement>("[data-show-cart]");
-hideCart?.addEventListener("click", () => {
+hideCart?.addEventListener("click", (): void => {
   cartContainer?.classList.add("hidden");
 });
-showCart?.addEventListener("click", () => {
+showCart?.addEventListener("click", (): void => {
   cartContainer?.classList.remove("hidden");
 });
 let addToCartButton = document.querySelector<HTMLButtonElement>("[data-atc]");
@@ -318,8 +318,10 @@ addToCartButton?.addEventListener("click", () => {
 
   addProduct(productName!, productPrice!);
 });
-
-function addProduct(name: HTMLHeadingElement, price: HTMLParagraphElement) {
+function addProduct(
+  name: HTMLHeadingElement,
+  price: HTMLParagraphElement
+): void {
   cartContainer?.classList.remove("hidden");
   emptyCartMessage?.classList.add("hidden");
 
@@ -333,21 +335,24 @@ function addProduct(name: HTMLHeadingElement, price: HTMLParagraphElement) {
     numberOfProductsInTheCartContainer?.innerText
   );
 
-  let template = `<div class="mx-auto p-2">
-              <div class="flex align-items" style="width:100%; min-height:100px">
+  let template: string = `<div class="mx-auto p-2">
+              <div class="flex align-items relative" style="width:100%; min-height:100px">
                 <div class="flex-grow">
                   <img src="#" alt=${productName} width="100" height="100" />
                 </div>
-                <div style="flex-grow: 3">
+                <div style="flex-grow: 3" class="relative">
                   <h1 class="text-base fredoka-bold">${productName}</h1>
                   <p class="fredoka">${productPrice}</p>
                 </div>
+                <button class="cursor-pointer p-2 absolute top-0 right-0 text-md z-10" title="Remove Product" onclick="if (this.parentElement && this.parentElement.parentElement) { this.parentElement.parentElement.style.display = 'none'; }">&times;</button>
               </div>
+              
             </div>`;
+
+  console.log(template);
 
   productsContainer!.classList.remove("items-center");
   productsContainer!.classList.remove("flex");
-
   cartNumber = cartNumber + 1;
   numberOfProductsInTheCartContainer!.innerText = cartNumber.toString();
   productsContainer!.innerHTML += template;

@@ -265,16 +265,19 @@ function addProduct(name, price) {
     let numberOfProductsInTheCartContainer = document.querySelector("[data-number]");
     let cartNumber = Number(numberOfProductsInTheCartContainer === null || numberOfProductsInTheCartContainer === void 0 ? void 0 : numberOfProductsInTheCartContainer.innerText);
     let template = `<div class="mx-auto p-2">
-              <div class="flex align-items" style="width:100%; min-height:100px">
+              <div class="flex align-items relative" style="width:100%; min-height:100px">
                 <div class="flex-grow">
                   <img src="#" alt=${productName} width="100" height="100" />
                 </div>
-                <div style="flex-grow: 3">
+                <div style="flex-grow: 3" class="relative">
                   <h1 class="text-base fredoka-bold">${productName}</h1>
                   <p class="fredoka">${productPrice}</p>
                 </div>
+                <button class="cursor-pointer p-2 absolute top-0 right-0 text-md z-10" title="Remove Product" onclick="if (this.parentElement && this.parentElement.parentElement) { this.parentElement.parentElement.style.display = 'none'; }">&times;</button>
               </div>
+              
             </div>`;
+    console.log(template);
     productsContainer.classList.remove("items-center");
     productsContainer.classList.remove("flex");
     cartNumber = cartNumber + 1;
