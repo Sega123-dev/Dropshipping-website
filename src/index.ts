@@ -318,6 +318,12 @@ addToCartButton?.addEventListener("click", () => {
 
   addProduct(productName!, productPrice!);
 });
+function updateCartNumber(number: string): void {
+  let itemNumberContainer =
+    document.querySelector<HTMLDivElement>("[data-item-number]");
+  itemNumberContainer!.innerHTML = number;
+  console.log("hello");
+}
 function addProduct(
   name: HTMLHeadingElement,
   price: HTMLParagraphElement
@@ -344,7 +350,7 @@ function addProduct(
                   <h1 class="text-base fredoka-bold">${productName}</h1>
                   <p class="fredoka">${productPrice}</p>
                 </div>
-                <button class="cursor-pointer p-2 absolute top-0 right-0 text-md z-10" title="Remove Product" onclick="if (this.parentElement && this.parentElement.parentElement) { this.parentElement.parentElement.style.display = 'none'; }">&times;</button>
+                <button class="cursor-pointer p-2 absolute top-0 right-0 text-md z-10" title="Remove Product">&times;</button>
               </div>
               
             </div>`;
@@ -356,6 +362,7 @@ function addProduct(
   cartNumber = cartNumber + 1;
   numberOfProductsInTheCartContainer!.innerText = cartNumber.toString();
   productsContainer!.innerHTML += template;
+  updateCartNumber(numberOfProductsInTheCartContainer!.innerText);
 }
 if (productsContainer!.children.length < 1) {
   productsContainer!.classList.add("items-center");

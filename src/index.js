@@ -257,6 +257,11 @@ addToCartButton === null || addToCartButton === void 0 ? void 0 : addToCartButto
     let productPrice = document.querySelector("#price");
     addProduct(productName, productPrice);
 });
+function updateCartNumber(number) {
+    let itemNumberContainer = document.querySelector("[data-item-number]");
+    itemNumberContainer.innerHTML = number;
+    console.log("hello");
+}
 function addProduct(name, price) {
     cartContainer === null || cartContainer === void 0 ? void 0 : cartContainer.classList.remove("hidden");
     emptyCartMessage === null || emptyCartMessage === void 0 ? void 0 : emptyCartMessage.classList.add("hidden");
@@ -273,7 +278,7 @@ function addProduct(name, price) {
                   <h1 class="text-base fredoka-bold">${productName}</h1>
                   <p class="fredoka">${productPrice}</p>
                 </div>
-                <button class="cursor-pointer p-2 absolute top-0 right-0 text-md z-10" title="Remove Product" onclick="if (this.parentElement && this.parentElement.parentElement) { this.parentElement.parentElement.style.display = 'none'; }">&times;</button>
+                <button class="cursor-pointer p-2 absolute top-0 right-0 text-md z-10" title="Remove Product">&times;</button>
               </div>
               
             </div>`;
@@ -283,6 +288,7 @@ function addProduct(name, price) {
     cartNumber = cartNumber + 1;
     numberOfProductsInTheCartContainer.innerText = cartNumber.toString();
     productsContainer.innerHTML += template;
+    updateCartNumber(numberOfProductsInTheCartContainer.innerText);
 }
 if (productsContainer.children.length < 1) {
     productsContainer.classList.add("items-center");
