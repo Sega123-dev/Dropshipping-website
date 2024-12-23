@@ -267,7 +267,7 @@ let reedemCodes: string[] = ["AJXD72", "S36A21", "N1AQ77"];
 let redeemCodeInput = document.querySelector<HTMLInputElement>(
   "[data-redeem-code-input]"
 );
-let isCodeRedeemed = false;
+let isCodeRedeemed: boolean = false;
 let redeemCodeButton = document.querySelector<HTMLButtonElement>(
   "[data-redeem-code-button]"
 );
@@ -318,18 +318,17 @@ addToCartButton?.addEventListener("click", () => {
 
   addProduct(productName!, productPrice!);
 });
-function updateCartNumber(number: string): void {
+function updateCartNumber(number: number): void {
   let itemNumberContainer =
     document.querySelector<HTMLDivElement>("[data-item-number]");
-  itemNumberContainer!.innerHTML = number;
-  console.log("hello");
+  itemNumberContainer!.innerText = number.toString();
 }
 function addProduct(
   name: HTMLHeadingElement,
   price: HTMLParagraphElement
 ): void {
   cartContainer?.classList.remove("hidden");
-  emptyCartMessage?.classList.add("hidden");
+  document.querySelector("[data-cart-empty]")?.classList.add("hidden");
 
   let productName: string = name.innerText;
   let productPrice: string = price.innerText;
@@ -350,22 +349,40 @@ function addProduct(
                   <h1 class="text-base fredoka-bold">${productName}</h1>
                   <p class="fredoka">${productPrice}</p>
                 </div>
-                <button class="cursor-pointer p-2 absolute top-0 right-0 text-md z-10" title="Remove Product">&times;</button>
-              </div>
-              
-            </div>`;
+                <button class="cursor-pointer p-2 absolute top-0 right-0 text-md z-10" title="Remove Product" 
+  onclick="
+    let cartNumber = parseInt(document.querySelector('[data-number]')?.innerText || '0') - 1;
+    let cartNumberInTheNav = parseInt(document.querySelector('[data-item-number]')?.innerText || '0') - 1;
+    if (cartNumber < 0) cartNumber = 0;
+    let numberOfProductsInTheCartContainer = document.querySelector('[data-number]');
+    let numberOfProductsInTheCartContainerInTheNav = document.querySelector('[data-item-number]');
+    if (numberOfProductsInTheCartContainer) {
+      numberOfProductsInTheCartContainer.innerText = cartNumber.toString();
+    }
+   if (numberOfProductsInTheCartContainerInTheNav) {
+    numberOfProductsInTheCartContainerInTheNav.innerText = cartNumberInTheNav.toString();
+   }
+    parentElement.parentElement.style.display = 'none';
+    if (cartNumber === 0) {
+          let emptyCartMessage = document.querySelector('[data-cart-empty]');
+          let productsContainer = document.querySelector('[data-products]');
+          if (emptyCartMessage) emptyCartMessage.classList.remove('hidden');
+          if (productsContainer) {
+            productsContainer.classList.add('items-center');
+            productsContainer.classList.add('flex');
+          }
+        } 
 
-  console.log(template);
+  ">
+  &times;
+</button>
+</div>
+</div>`;
 
   productsContainer!.classList.remove("items-center");
   productsContainer!.classList.remove("flex");
   cartNumber = cartNumber + 1;
   numberOfProductsInTheCartContainer!.innerText = cartNumber.toString();
   productsContainer!.innerHTML += template;
-  updateCartNumber(numberOfProductsInTheCartContainer!.innerText);
-}
-if (productsContainer!.children.length < 1) {
-  productsContainer!.classList.add("items-center");
-  productsContainer!.classList.add("flex");
-  emptyCartMessage?.classList.remove("hidden");
+  updateCartNumber(cartNumber);
 }

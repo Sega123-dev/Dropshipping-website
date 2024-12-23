@@ -259,12 +259,12 @@ addToCartButton === null || addToCartButton === void 0 ? void 0 : addToCartButto
 });
 function updateCartNumber(number) {
     let itemNumberContainer = document.querySelector("[data-item-number]");
-    itemNumberContainer.innerHTML = number;
-    console.log("hello");
+    itemNumberContainer.innerText = number.toString();
 }
 function addProduct(name, price) {
+    var _a;
     cartContainer === null || cartContainer === void 0 ? void 0 : cartContainer.classList.remove("hidden");
-    emptyCartMessage === null || emptyCartMessage === void 0 ? void 0 : emptyCartMessage.classList.add("hidden");
+    (_a = document.querySelector("[data-cart-empty]")) === null || _a === void 0 ? void 0 : _a.classList.add("hidden");
     let productName = name.innerText;
     let productPrice = price.innerText;
     let numberOfProductsInTheCartContainer = document.querySelector("[data-number]");
@@ -278,20 +278,39 @@ function addProduct(name, price) {
                   <h1 class="text-base fredoka-bold">${productName}</h1>
                   <p class="fredoka">${productPrice}</p>
                 </div>
-                <button class="cursor-pointer p-2 absolute top-0 right-0 text-md z-10" title="Remove Product">&times;</button>
-              </div>
-              
-            </div>`;
-    console.log(template);
+                <button class="cursor-pointer p-2 absolute top-0 right-0 text-md z-10" title="Remove Product" 
+  onclick="
+    let cartNumber = parseInt(document.querySelector('[data-number]')?.innerText || '0') - 1;
+    let cartNumberInTheNav = parseInt(document.querySelector('[data-item-number]')?.innerText || '0') - 1;
+    if (cartNumber < 0) cartNumber = 0;
+    let numberOfProductsInTheCartContainer = document.querySelector('[data-number]');
+    let numberOfProductsInTheCartContainerInTheNav = document.querySelector('[data-item-number]');
+    if (numberOfProductsInTheCartContainer) {
+      numberOfProductsInTheCartContainer.innerText = cartNumber.toString();
+    }
+   if (numberOfProductsInTheCartContainerInTheNav) {
+    numberOfProductsInTheCartContainerInTheNav.innerText = cartNumberInTheNav.toString();
+   }
+    parentElement.parentElement.style.display = 'none';
+    if (cartNumber === 0) {
+          let emptyCartMessage = document.querySelector('[data-cart-empty]');
+          let productsContainer = document.querySelector('[data-products]');
+          if (emptyCartMessage) emptyCartMessage.classList.remove('hidden');
+          if (productsContainer) {
+            productsContainer.classList.add('items-center');
+            productsContainer.classList.add('flex');
+          }
+        } 
+
+  ">
+  &times;
+</button>
+</div>
+</div>`;
     productsContainer.classList.remove("items-center");
     productsContainer.classList.remove("flex");
     cartNumber = cartNumber + 1;
     numberOfProductsInTheCartContainer.innerText = cartNumber.toString();
     productsContainer.innerHTML += template;
-    updateCartNumber(numberOfProductsInTheCartContainer.innerText);
-}
-if (productsContainer.children.length < 1) {
-    productsContainer.classList.add("items-center");
-    productsContainer.classList.add("flex");
-    emptyCartMessage === null || emptyCartMessage === void 0 ? void 0 : emptyCartMessage.classList.remove("hidden");
+    updateCartNumber(cartNumber);
 }
