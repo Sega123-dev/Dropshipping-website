@@ -145,3 +145,26 @@ option {
 input[type="password"] {
   font-family: Verdana;
 }
+
+/*Media queries*/
+
+/*Mobile Phones*/
+
+@media (max-width: 768px) {
+  .hero-image {
+    width: 80%;
+    height: 80%;
+    margin: auto auto auto auto;
+  }
+  .grey-button {
+    text-align: center;
+  }
+  .blue-watch-image {
+    margin: 10px auto 10px auto;
+    height: 1%;
+  }
+  .multiple-watches-image {
+    display: block;
+    object-fit: cover;
+  }
+}

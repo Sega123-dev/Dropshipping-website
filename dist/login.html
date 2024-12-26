@@ -65,6 +65,7 @@
         <div class="absolute w-full bottom-0 flex justify-center">
           <button
             class="fredoka text-xl text-center p-4 m-2 text-white rounded-md w-11/12"
+            aria-label="Checkout the products"
             style="background-color: #232323"
           >
             Checkout
@@ -164,7 +165,10 @@
             >
               Login
             </h1>
-            <a href="signup.html" class="fredoka-light text-md"
+            <a
+              href="signup.html"
+              class="fredoka-light text-md"
+              aria-label="Click here to create new account"
               >Create account</a
             >
           </div>
@@ -174,13 +178,17 @@
               type="email"
               class="p-2.5 fredoka-light block register-inputs my-3 w-full rounded-full"
               id="email"
+              aria-required="true"
               required
+              autocomplete="email"
             />
             <label for="password" class="fredoka-light">Password</label>
             <input
               type="password"
               class="p-2.5 fredoka-light block register-inputs my-3 w-full rounded-full"
               id="password"
+              aria-required="true"
+              autocomplete="current-password"
               required
             />
             <button
@@ -195,11 +203,19 @@
             <a href="index.html" class="text-md block" style="color: #232323"
               >Return to Store</a
             >
-            <a href="#" class="text-base mt-2" style="color: #232323"
+            <a
+              href="#"
+              class="text-base mt-2"
+              style="color: #232323"
+              aria-describedby="If you forget the password,click on this link to reset it"
               >Forgot your password?</a
             >
             <p class="mt-4">Need help accessing your subscribtions?</p>
-            <a href="#" class="text-base mt-2" style="color: #232323"
+            <a
+              href="#"
+              class="text-base mt-2"
+              style="color: #232323"
+              aria-label="Click here for accessing your subscriptions"
               >Click here</a
             >
           </div>
@@ -252,6 +268,7 @@
           >
             <input
               placeholder="email@example.com"
+              aria-labelledby="Subscription email"
               class="fredoka-light p-2 mt-4 rounded-full outline-none text-white bg-transparent subscribe-input"
               style="flex: 2"
               type="email"

@@ -700,16 +700,16 @@ video {
   margin-bottom: 2rem;
 }
 
-.mb-16 {
-  margin-bottom: 4rem;
-}
-
 .mb-2 {
   margin-bottom: 0.5rem;
 }
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
 }
 
 .ml-2 {
@@ -730,10 +730,6 @@ video {
 
 .mr-1 {
   margin-right: 0.25rem;
-}
-
-.mr-20 {
-  margin-right: 5rem;
 }
 
 .mt-2 {
@@ -1316,6 +1312,33 @@ input[type="password"] {
   font-family: Verdana;
 }
 
+/*Media queries*/
+
+/*Mobile Phones*/
+
+@media (max-width: 768px) {
+  .hero-image {
+    width: 80%;
+    height: 80%;
+    margin: auto auto auto auto;
+  }
+
+  .grey-button {
+    text-align: center;
+  }
+
+  .blue-watch-image {
+    margin: 10px auto 10px auto;
+    height: 1%;
+  }
+
+  .multiple-watches-image {
+    display: block;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+
 .hover\:bg-transparent:hover {
   background-color: transparent;
 }
@@ -1323,6 +1346,14 @@ input[type="password"] {
 @media (min-width: 768px) {
   .md\:m-0 {
     margin: 0px;
+  }
+
+  .md\:mb-16 {
+    margin-bottom: 4rem;
+  }
+
+  .md\:mr-20 {
+    margin-right: 5rem;
   }
 
   .md\:mt-0 {
@@ -1345,7 +1376,29 @@ input[type="password"] {
     flex-direction: row;
   }
 
+  .md\:justify-start {
+    justify-content: flex-start;
+  }
+
   .md\:p-0 {
     padding: 0px;
+  }
+
+  .md\:p-6 {
+    padding: 1.5rem;
+  }
+
+  .md\:text-start {
+    text-align: start;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 }

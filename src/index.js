@@ -8,33 +8,31 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = require("firebase/app");
+const firebaseConfig_1 = __importDefault(require("./firebaseConfig"));
 const firestore_1 = require("firebase/firestore");
 const auth_1 = require("firebase/auth");
-const firebaseConfig = {
-    apiKey: "AIzaSyCVQV958Z41fzCxgG9S11QAvBzW1xZy_4o",
-    authDomain: "dropshiping-website.firebaseapp.com",
-    projectId: "dropshiping-website",
-    storageBucket: "dropshiping-website.appspot.com",
-    messagingSenderId: "88265939594",
-    appId: "1:88265939594:web:2f6292f1ca92a5c3e9eb73",
-    measurementId: "G-E3T06T74CL",
-};
 //Back-end
-(0, app_1.initializeApp)(firebaseConfig);
+(0, app_1.initializeApp)(firebaseConfig_1.default);
 const db = (0, firestore_1.getFirestore)();
 const auth = (0, auth_1.getAuth)();
+//Collections
 const colProducts = (0, firestore_1.collection)(db, "products");
 const colUsernames = (0, firestore_1.collection)(db, "usernames");
 const colRedeemRef = (0, firestore_1.doc)(db, "booleans", "gB1xtzKVA4OGM4yx8gim");
 let products = [];
 let usernames = [];
+//Fetch the products data
 (0, firestore_1.onSnapshot)(colProducts, (snapshot) => {
     snapshot.docs.forEach((doc) => {
         products.push(Object.assign(Object.assign({}, doc.data()), { id: doc.id }));
     });
 });
+//Fetch the username data
 (0, firestore_1.onSnapshot)(colUsernames, (snapshot) => {
     snapshot.docs.forEach((doc) => {
         usernames.push(Object.assign(Object.assign({}, doc.data()), { id: doc.id }));
@@ -44,6 +42,7 @@ const signupForm = document.querySelector(".signup");
 const firstNameInput = document.querySelector("#fname");
 const lastNameInput = document.querySelector("#lname");
 const username = (firstNameInput === null || firstNameInput === void 0 ? void 0 : firstNameInput.value) + " " + (lastNameInput === null || lastNameInput === void 0 ? void 0 : lastNameInput.value);
+//Signing up functionality
 signupForm === null || signupForm === void 0 ? void 0 : signupForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const email = signupForm.email.value;
@@ -56,6 +55,7 @@ signupForm === null || signupForm === void 0 ? void 0 : signupForm.addEventListe
         .catch((err) => {
         console.log(err.message);
     });
+    //add the data to database
     (0, firestore_1.addDoc)(colUsernames, {
         username: username,
         email: email,
@@ -80,6 +80,7 @@ loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener
 let slides = document.querySelectorAll("[data-slide]");
 let nextButton = document.querySelector("#next");
 let previousButton = document.querySelector("#prev");
+//Slider functionality
 let slideIndex = 1;
 showSlides(slideIndex);
 function plusSlides(n) {
@@ -98,6 +99,7 @@ function showSlides(n) {
 nextButton === null || nextButton === void 0 ? void 0 : nextButton.addEventListener("click", () => plusSlides(1));
 previousButton === null || previousButton === void 0 ? void 0 : previousButton.addEventListener("click", () => plusSlides(-1));
 let backToTopButton = document.querySelector("[data-back-to-top]");
+//Back to top button functionality
 window.onscroll = () => {
     showBTTButton();
 };
@@ -114,6 +116,7 @@ backToTopButton === null || backToTopButton === void 0 ? void 0 : backToTopButto
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 });
+//Frequently asked questions functionality
 let FAQs = document.querySelectorAll("[data-faq]");
 let FAQAnswers = document.querySelectorAll("[data-answer]");
 function FAQsFunctionImplement() {
@@ -131,6 +134,7 @@ function FAQsFunctionImplement() {
     }
 }
 FAQsFunctionImplement();
+//API to get the country from the user and select it in the select dropdown
 function fetchUserCountry() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -152,6 +156,7 @@ function fetchUserCountry() {
     });
 }
 fetchUserCountry();
+//Product Images
 let mahoganyImage = document.querySelector("#mahogany");
 let casioImage = document.querySelector("#casio");
 let rolexImage = document.querySelector("#rolex");
@@ -162,6 +167,7 @@ let mahoganyButton = document.querySelector("#mahogany-button");
 let casioButton = document.querySelector("#casio-button");
 let rolexButton = document.querySelector("#rolex-button");
 let gShockButton = document.querySelector("#g-shock-button");
+//Show the first product(body tag onload function)
 function showFirstProduct() {
     mahoganyImage === null || mahoganyImage === void 0 ? void 0 : mahoganyImage.classList.remove("hidden");
     casioImage === null || casioImage === void 0 ? void 0 : casioImage.classList.add("hidden");
@@ -170,6 +176,7 @@ function showFirstProduct() {
     mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.classList.add("active");
 }
 showFirstProduct();
+//Dynamically browse the products
 mahoganyButton === null || mahoganyButton === void 0 ? void 0 : mahoganyButton.addEventListener("click", () => {
     mahoganyImage === null || mahoganyImage === void 0 ? void 0 : mahoganyImage.classList.remove("hidden");
     casioImage === null || casioImage === void 0 ? void 0 : casioImage.classList.add("hidden");
@@ -218,12 +225,14 @@ gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.addEven
     gShockButton === null || gShockButton === void 0 ? void 0 : gShockButton.classList.add("active");
     rolexButton === null || rolexButton === void 0 ? void 0 : rolexButton.classList.remove("active");
 });
+//Redeem codes
 let reedemCodes = ["AJXD72", "S36A21", "N1AQ77"];
 let redeemCodeInput = document.querySelector("[data-redeem-code-input]");
-let isCodeRedeemed = false;
+let isCodeRedeemed = false; //Using this variable for database
 let redeemCodeButton = document.querySelector("[data-redeem-code-button]");
 let validReedemCodeText = document.querySelector("[data-valid]");
 let invalidReedemCodeText = document.querySelector("[data-invalid]");
+//Add the isCodeRedeemed's value into the database(Back-end)
 redeemCodeButton === null || redeemCodeButton === void 0 ? void 0 : redeemCodeButton.addEventListener("click", () => {
     for (let i = 0; i < reedemCodes.length; i++) {
         if ((redeemCodeInput === null || redeemCodeInput === void 0 ? void 0 : redeemCodeInput.value) === reedemCodes[i]) {
@@ -240,7 +249,9 @@ redeemCodeButton === null || redeemCodeButton === void 0 ? void 0 : redeemCodeBu
         }
     }
 });
+//Cart functionality
 let cartContainer = document.querySelector("[data-cart-container]");
+//Hide and show cart buttons
 let hideCart = document.querySelector("[data-remove-cart]");
 let showCart = document.querySelector("[data-show-cart]");
 hideCart === null || hideCart === void 0 ? void 0 : hideCart.addEventListener("click", () => {
@@ -252,56 +263,61 @@ showCart === null || showCart === void 0 ? void 0 : showCart.addEventListener("c
 let addToCartButton = document.querySelector("[data-atc]");
 let productsContainer = document.querySelector("[data-products]");
 let emptyCartMessage = document.querySelector("[data-cart-empty]");
+//Add to cart button for adding products into the cart
 addToCartButton === null || addToCartButton === void 0 ? void 0 : addToCartButton.addEventListener("click", () => {
     let productName = document.querySelector("#product-display");
     let productPrice = document.querySelector("#price");
-    addProduct(productName, productPrice);
+    addProduct(productName, productPrice); //Function with two passed arguments,prodcut name and product price(HTML elements)
 });
+//Function updates the number of items in the cart when we add or remove items
 function updateCartNumber(number) {
     let itemNumberContainer = document.querySelector("[data-item-number]");
     itemNumberContainer.innerText = number.toString();
 }
+//Add product functions
 function addProduct(name, price) {
+    //Show the cart and remove the empty cart text(Written in HTML doc)
     var _a;
     cartContainer === null || cartContainer === void 0 ? void 0 : cartContainer.classList.remove("hidden");
     (_a = document.querySelector("[data-cart-empty]")) === null || _a === void 0 ? void 0 : _a.classList.add("hidden");
+    //Get the element values
     let productName = name.innerText;
     let productPrice = price.innerText;
     let numberOfProductsInTheCartContainer = document.querySelector("[data-number]");
     let cartNumber = Number(numberOfProductsInTheCartContainer === null || numberOfProductsInTheCartContainer === void 0 ? void 0 : numberOfProductsInTheCartContainer.innerText);
+    //Template for the product(JS is remove button functionality)
     let template = `<div class="mx-auto p-2">
-              <div class="flex align-items relative" style="width:100%; min-height:100px">
-                <div class="flex-grow">
+          <div class="flex align-items relative" style="width:100%; min-height:100px">
+              <div class="flex-grow">
                   <img src="#" alt=${productName} width="100" height="100" />
-                </div>
-                <div style="flex-grow: 3" class="relative">
+              </div>
+              <div style="flex-grow: 3" class="relative">
                   <h1 class="text-base fredoka-bold">${productName}</h1>
                   <p class="fredoka">${productPrice}</p>
                 </div>
                 <button class="cursor-pointer p-2 absolute top-0 right-0 text-md z-10" title="Remove Product" 
-  onclick="
-    let cartNumber = parseInt(document.querySelector('[data-number]')?.innerText || '0') - 1;
-    let cartNumberInTheNav = parseInt(document.querySelector('[data-item-number]')?.innerText || '0') - 1;
-    if (cartNumber < 0) cartNumber = 0;
-    let numberOfProductsInTheCartContainer = document.querySelector('[data-number]');
-    let numberOfProductsInTheCartContainerInTheNav = document.querySelector('[data-item-number]');
+    onclick="
+       let cartNumber = parseInt(document.querySelector('[data-number]')?.innerText || '0') - 1;
+       let cartNumberInTheNav = parseInt(document.querySelector('[data-item-number]')?.innerText || '0') - 1;
+       if (cartNumber < 0) cartNumber = 0;
+       let numberOfProductsInTheCartContainer = document.querySelector('[data-number]');
+       let numberOfProductsInTheCartContainerInTheNav = document.querySelector('[data-item-number]');
     if (numberOfProductsInTheCartContainer) {
-      numberOfProductsInTheCartContainer.innerText = cartNumber.toString();
+        numberOfProductsInTheCartContainer.innerText = cartNumber.toString();
     }
    if (numberOfProductsInTheCartContainerInTheNav) {
     numberOfProductsInTheCartContainerInTheNav.innerText = cartNumberInTheNav.toString();
    }
-    parentElement.parentElement.style.display = 'none';
+   parentElement.parentElement.style.display = 'none';
     if (cartNumber === 0) {
-          let emptyCartMessage = document.querySelector('[data-cart-empty]');
-          let productsContainer = document.querySelector('[data-products]');
-          if (emptyCartMessage) emptyCartMessage.classList.remove('hidden');
-          if (productsContainer) {
-            productsContainer.classList.add('items-center');
-            productsContainer.classList.add('flex');
+           let emptyCartMessage = document.querySelector('[data-cart-empty]');
+           let productsContainer = document.querySelector('[data-products]');
+           if (emptyCartMessage) emptyCartMessage.classList.remove('hidden');
+           if (productsContainer) {
+             productsContainer.classList.add('items-center');
+             productsContainer.classList.add('flex');
           }
         } 
-
   ">
   &times;
 </button>

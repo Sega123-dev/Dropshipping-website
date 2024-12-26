@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import firebaseConfig from "./firebaseConfig";
 import {
   getFirestore,
   collection,
@@ -14,21 +15,13 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCVQV958Z41fzCxgG9S11QAvBzW1xZy_4o",
-  authDomain: "dropshiping-website.firebaseapp.com",
-  projectId: "dropshiping-website",
-  storageBucket: "dropshiping-website.appspot.com",
-  messagingSenderId: "88265939594",
-  appId: "1:88265939594:web:2f6292f1ca92a5c3e9eb73",
-  measurementId: "G-E3T06T74CL",
-};
-
 //Back-end
 
 initializeApp(firebaseConfig);
 const db = getFirestore();
 const auth = getAuth();
+
+//Collections
 
 const colProducts = collection(db, "products");
 const colUsernames = collection(db, "usernames");
@@ -37,11 +30,15 @@ const colRedeemRef = doc(db, "booleans", "gB1xtzKVA4OGM4yx8gim");
 let products: any = [];
 let usernames: any = [];
 
+//Fetch the products data
+
 onSnapshot(colProducts, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     products.push({ ...doc.data(), id: doc.id });
   });
 });
+
+//Fetch the username data
 
 onSnapshot(colUsernames, (snapshot) => {
   snapshot.docs.forEach((doc) => {
@@ -54,6 +51,8 @@ const firstNameInput = document.querySelector<HTMLInputElement>("#fname");
 const lastNameInput = document.querySelector<HTMLInputElement>("#lname");
 
 const username = firstNameInput?.value + " " + lastNameInput?.value;
+
+//Signing up functionality
 
 signupForm?.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -69,6 +68,8 @@ signupForm?.addEventListener("submit", (e) => {
     .catch((err) => {
       console.log(err.message);
     });
+
+  //add the data to database
 
   addDoc(colUsernames, {
     username: username,
@@ -99,6 +100,8 @@ let slides = document.querySelectorAll<HTMLElement>("[data-slide]");
 let nextButton = document.querySelector<HTMLButtonElement>("#next");
 let previousButton = document.querySelector<HTMLButtonElement>("#prev");
 
+//Slider functionality
+
 let slideIndex: number = 1;
 showSlides(slideIndex);
 
@@ -123,6 +126,8 @@ let backToTopButton = document.querySelector(
   "[data-back-to-top]"
 ) as HTMLButtonElement;
 
+//Back to top button functionality
+
 window.onscroll = (): void => {
   showBTTButton();
 };
@@ -142,6 +147,8 @@ backToTopButton?.addEventListener("click", (): void => {
   document.documentElement.scrollTop = 0;
 });
 
+//Frequently asked questions functionality
+
 let FAQs = document.querySelectorAll("[data-faq]");
 let FAQAnswers = document.querySelectorAll<HTMLElement>("[data-answer]");
 
@@ -160,6 +167,8 @@ function FAQsFunctionImplement(): void {
   }
 }
 FAQsFunctionImplement();
+
+//API to get the country from the user and select it in the select dropdown
 
 async function fetchUserCountry(): Promise<void> {
   try {
@@ -182,6 +191,8 @@ async function fetchUserCountry(): Promise<void> {
 
 fetchUserCountry();
 
+//Product Images
+
 let mahoganyImage = document.querySelector<HTMLImageElement>("#mahogany");
 let casioImage = document.querySelector<HTMLImageElement>("#casio");
 let rolexImage = document.querySelector<HTMLImageElement>("#rolex");
@@ -196,6 +207,8 @@ let casioButton = document.querySelector<HTMLButtonElement>("#casio-button");
 let rolexButton = document.querySelector<HTMLButtonElement>("#rolex-button");
 let gShockButton = document.querySelector<HTMLButtonElement>("#g-shock-button");
 
+//Show the first product(body tag onload function)
+
 function showFirstProduct(): any {
   mahoganyImage?.classList.remove("hidden");
   casioImage?.classList.add("hidden");
@@ -206,6 +219,8 @@ function showFirstProduct(): any {
 }
 
 showFirstProduct();
+
+//Dynamically browse the products
 
 mahoganyButton?.addEventListener("click", () => {
   mahoganyImage?.classList.remove("hidden");
@@ -263,11 +278,14 @@ gShockButton?.addEventListener("click", () => {
   gShockButton?.classList.add("active");
   rolexButton?.classList.remove("active");
 });
+
+//Redeem codes
+
 let reedemCodes: string[] = ["AJXD72", "S36A21", "N1AQ77"];
 let redeemCodeInput = document.querySelector<HTMLInputElement>(
   "[data-redeem-code-input]"
 );
-let isCodeRedeemed: boolean = false;
+let isCodeRedeemed: boolean = false; //Using this variable for database
 let redeemCodeButton = document.querySelector<HTMLButtonElement>(
   "[data-redeem-code-button]"
 );
@@ -276,6 +294,8 @@ let validReedemCodeText =
 
 let invalidReedemCodeText =
   document.querySelector<HTMLParagraphElement>("[data-invalid]");
+
+//Add the isCodeRedeemed's value into the database(Back-end)
 
 redeemCodeButton?.addEventListener("click", (): void => {
   for (let i = 0; i < reedemCodes.length; i++) {
@@ -293,9 +313,14 @@ redeemCodeButton?.addEventListener("click", (): void => {
   }
 });
 
+//Cart functionality
+
 let cartContainer = document.querySelector<HTMLDivElement>(
   "[data-cart-container]"
 );
+
+//Hide and show cart buttons
+
 let hideCart = document.querySelector<HTMLButtonElement>("[data-remove-cart]");
 let showCart = document.querySelector<HTMLAnchorElement>("[data-show-cart]");
 hideCart?.addEventListener("click", (): void => {
@@ -311,24 +336,36 @@ let productsContainer =
 let emptyCartMessage =
   document.querySelector<HTMLParagraphElement>("[data-cart-empty]");
 
+//Add to cart button for adding products into the cart
+
 addToCartButton?.addEventListener("click", () => {
   let productName =
     document.querySelector<HTMLHeadingElement>("#product-display");
   let productPrice = document.querySelector<HTMLParagraphElement>("#price");
 
-  addProduct(productName!, productPrice!);
+  addProduct(productName!, productPrice!); //Function with two passed arguments,prodcut name and product price(HTML elements)
 });
+
+//Function updates the number of items in the cart when we add or remove items
+
 function updateCartNumber(number: number): void {
   let itemNumberContainer =
     document.querySelector<HTMLDivElement>("[data-item-number]");
   itemNumberContainer!.innerText = number.toString();
 }
+
+//Add product functions
+
 function addProduct(
   name: HTMLHeadingElement,
   price: HTMLParagraphElement
 ): void {
+  //Show the cart and remove the empty cart text(Written in HTML doc)
+
   cartContainer?.classList.remove("hidden");
   document.querySelector("[data-cart-empty]")?.classList.add("hidden");
+
+  //Get the element values
 
   let productName: string = name.innerText;
   let productPrice: string = price.innerText;
@@ -340,39 +377,40 @@ function addProduct(
     numberOfProductsInTheCartContainer?.innerText
   );
 
+  //Template for the product(JS is remove button functionality)
+
   let template: string = `<div class="mx-auto p-2">
-              <div class="flex align-items relative" style="width:100%; min-height:100px">
-                <div class="flex-grow">
+          <div class="flex align-items relative" style="width:100%; min-height:100px">
+              <div class="flex-grow">
                   <img src="#" alt=${productName} width="100" height="100" />
-                </div>
-                <div style="flex-grow: 3" class="relative">
+              </div>
+              <div style="flex-grow: 3" class="relative">
                   <h1 class="text-base fredoka-bold">${productName}</h1>
                   <p class="fredoka">${productPrice}</p>
                 </div>
                 <button class="cursor-pointer p-2 absolute top-0 right-0 text-md z-10" title="Remove Product" 
-  onclick="
-    let cartNumber = parseInt(document.querySelector('[data-number]')?.innerText || '0') - 1;
-    let cartNumberInTheNav = parseInt(document.querySelector('[data-item-number]')?.innerText || '0') - 1;
-    if (cartNumber < 0) cartNumber = 0;
-    let numberOfProductsInTheCartContainer = document.querySelector('[data-number]');
-    let numberOfProductsInTheCartContainerInTheNav = document.querySelector('[data-item-number]');
+    onclick="
+       let cartNumber = parseInt(document.querySelector('[data-number]')?.innerText || '0') - 1;
+       let cartNumberInTheNav = parseInt(document.querySelector('[data-item-number]')?.innerText || '0') - 1;
+       if (cartNumber < 0) cartNumber = 0;
+       let numberOfProductsInTheCartContainer = document.querySelector('[data-number]');
+       let numberOfProductsInTheCartContainerInTheNav = document.querySelector('[data-item-number]');
     if (numberOfProductsInTheCartContainer) {
-      numberOfProductsInTheCartContainer.innerText = cartNumber.toString();
+        numberOfProductsInTheCartContainer.innerText = cartNumber.toString();
     }
    if (numberOfProductsInTheCartContainerInTheNav) {
     numberOfProductsInTheCartContainerInTheNav.innerText = cartNumberInTheNav.toString();
    }
-    parentElement.parentElement.style.display = 'none';
+   parentElement.parentElement.style.display = 'none';
     if (cartNumber === 0) {
-          let emptyCartMessage = document.querySelector('[data-cart-empty]');
-          let productsContainer = document.querySelector('[data-products]');
-          if (emptyCartMessage) emptyCartMessage.classList.remove('hidden');
-          if (productsContainer) {
-            productsContainer.classList.add('items-center');
-            productsContainer.classList.add('flex');
+           let emptyCartMessage = document.querySelector('[data-cart-empty]');
+           let productsContainer = document.querySelector('[data-products]');
+           if (emptyCartMessage) emptyCartMessage.classList.remove('hidden');
+           if (productsContainer) {
+             productsContainer.classList.add('items-center');
+             productsContainer.classList.add('flex');
           }
         } 
-
   ">
   &times;
 </button>

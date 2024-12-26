@@ -47,8 +47,17 @@
             <h1 class="inline text-2xl pr-0 pt-6 pb-6 pl-6 fredoka-bold">
               Cart
             </h1>
-            <span class="text-2xl p-6 pl-2 fredoka-bold" data-number>0</span>
-            <button class="text-2xl ml-auto px-6" data-remove-cart>
+            <span
+              class="text-2xl p-6 pl-2 fredoka-bold"
+              data-number
+              aria-label="Number of items in the cart"
+              >0</span
+            >
+            <button
+              class="text-2xl ml-auto px-6"
+              data-remove-cart
+              aria-label="Remove item from the cart"
+            >
               &times;
             </button>
           </div>
@@ -70,7 +79,11 @@
               class="fredoka text-xl text-center p-4 m-2 text-white rounded-md w-11/12"
               style="background-color: #232323"
             >
-              Checkout
+              <span aria-label="Checkout button" title="Checkout"
+                >Checkout
+                <span style="color: #232323">a</span>
+                <li class="inline-block" data-total>$0</li></span
+              >
             </button>
           </div>
         </div>
@@ -81,6 +94,7 @@
           class="bottom-0 p-4 m-4 bg-white fixed inline text-center rounded-full z-10"
           title="Back to Top"
           style="border: 1px solid #232323; left: 49%"
+          aria-label="Back to top"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +122,11 @@
         <div class="block light-grey text-white fredoka p-4">
           <nav class="flex text-lg items-center z-10">
             <div class="flex-1 flex-grow">
-              <a href="#shop" class="ml-7 md:block hidden" title="Shop all"
+              <a
+                href="#shop"
+                class="ml-7 md:block hidden"
+                title="Shop all"
+                aria-label="Shop all our products"
                 >Shop all</a
               >
               <svg
@@ -133,6 +151,7 @@
                 href="#"
                 class="text-3xl tracking-widest font-semibold"
                 title="Watches"
+                aria-label="Logo"
                 >Watches</a
               >
             </div>
@@ -152,7 +171,12 @@
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                   <circle cx="12" cy="7" r="4"></circle></svg
               ></a>
-              <a class="mx-2 relative" title="Cart" data-show-cart>
+              <a
+                class="mx-2 relative"
+                title="Cart"
+                data-show-cart
+                aria-label="Click to open the cart"
+              >
                 <svg
                   class="cursor-pointer"
                   xmlns="http://www.w3.org/2000/svg"
@@ -172,7 +196,13 @@
                   /></svg
               ></a>
               <div class="text-xl fredoka-light">|</div>
-              <div class="text-xl fredoka-light mx-2" data-item-number>0</div>
+              <div
+                class="text-xl fredoka-light mx-2"
+                data-item-number
+                aria-label="Number of items in the cart"
+              >
+                0
+              </div>
             </div>
           </nav>
         </div>
@@ -224,17 +254,20 @@
         <div class="md:flex light-grey h-screen flex-row-reverse md:flex-row">
           <div class="flex-1 flex-grow text-white items-center md:flex w-full">
             <div class="md:m-0 md:p-0 light-grey p-2">
-              <h1 class="text-4xl fredoka-bold mx-10 md:mt-0 light-grey">
+              <h1
+                class="md:text-4xl fredoka-bold mx-10 md:mt-0 light-grey text-3xl mt-2"
+              >
                 Precise,slick and elegant
               </h1>
-              <p class="text-lg mx-10 py-4 fredoka">
+              <p class="md:text-lg mx-10 py-4 fredoka text-md">
                 15% OFF AND FREE SHIPPING WHEN BUYING 2 WATCHES OR MORE
               </p>
               <a href="#shop"
                 ><button
                   type="button"
-                  class="light-blue p-4 text-white fredoka-bold mx-10 my-4 px-10 rounded-full flex items-center grey-hover"
+                  class="light-blue p-4 text-white fredoka-bold mx-10 my-4 px-10 rounded-full flex items-center grey-hover text-center md:text-start"
                   title="Claim product for 15% off"
+                  aria-label="Claim product for 15% off."
                 >
                   Claim Your Product
                   <svg
@@ -262,7 +295,7 @@
               alt="Watch hero section"
               width="600"
               height="600"
-              class="rounded-3xl"
+              class="rounded-3xl hero-image"
             />
           </div>
         </div>
@@ -270,32 +303,39 @@
       <section>
         <div class="flex flex-wrap" style="color: #232323; height: 90vh">
           <div
-            class="flex flex-1 justify-center items-center flex-grow flex-wrap"
+            class="flex flex-1 justify-center items-center flex-grow blue-watch-wrapper"
           >
             <img
               src="images/blue watch.jpg"
               alt="Blue watch"
               height="330"
               width="330"
-              class="shadow-2xl"
+              class="shadow-2xl md:p-0"
             />
           </div>
           <div
             class="flex-1 flex-grow flex justify-center items-center flex-wrap"
           >
             <div>
-              <h1 class="fredoka-bold text-4xl my-4">Best quality watches</h1>
-              <p class="text-lg fredoka mr-20">
+              <h1 class="fredoka-bold text-4xl my-4 md:text-start text-center">
+                Best quality watches
+              </h1>
+              <p class="text-lg fredoka md:mr-20 md:text-start text-center">
                 Timepieces as unique as you are.One of the best watches that are
                 available on the market.
               </p>
-              <a href="#"
-                ><button
-                  class="light-grey p-4 px-6 text-white mt-7 fredoka-light rounded-lg cursor-pointer hover:bg-transparent white-hover"
-                  title="Shop now"
+              <div class="flex md:justify-start justify-center">
+                <a href="#"
+                  ><button
+                    class="light-grey p-4 px-6 text-white mt-7 fredoka-light rounded-lg cursor-pointer hover:bg-transparent white-hover grey-button"
+                    title="Shop now"
+                    aria-label="Shop now"
+                  >
+                    Shop Now
+                  </button></a
                 >
-                  Shop Now
-                </button></a
+              </div>
+
               >
             </div>
           </div>
@@ -303,22 +343,22 @@
       </section>
       <section>
         <div class="light-grey text-white p-24">
-          <div class="fredoka-bold text-5xl mb-16 text-center">
+          <div class="fredoka-bold text-5xl md:mb-16 text-center mb-8">
             Elevate your style!
           </div>
-          <div class="flex justify-center items-center">
+          <div class="flex justify-center items-center multiple-watches-image">
             <img
               src="images/multiple watches.jpg"
               alt="Multiple Watches"
               height="700"
               width="700"
-              class="rounded-3xl"
+              class="rounded-3xl multiple-watches-image"
             />
           </div>
         </div>
       </section>
       <section class="light-grey">
-        <h1 class="text-white text-center p-6 fredoka-bold text-4xl">
+        <h1 class="text-white text-center md:p-6 fredoka-bold text-4xl p-3">
           As seen on
         </h1>
         <div class="md:flex flex-wrap light-grey content-between pb-12">
@@ -1069,7 +1109,7 @@
               style="width: 45%"
               data-faq
             >
-              <div class="items-center flex">
+              <div class="items-center flex md:">
                 <svg
                   class="mx-1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1264,6 +1304,7 @@
               Redeem this code to instantly save 15% on your Purchase!
             </h1>
             <input
+              aria-labelledby="Reedem code input"
               placeholder="Enter code"
               style="font-family: monospace"
               class="w-full p-2 rounded-full mt-4 outline-none cursor-pointer text-black reedem-input"
@@ -1336,6 +1377,7 @@
             >
               <input
                 placeholder="email@example.com"
+                aria-labelledby="Subscription email"
                 class="fredoka-light p-2 mt-4 rounded-full outline-none text-white bg-transparent subscribe-input"
                 style="flex: 2"
                 type="email"
