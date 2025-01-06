@@ -34,10 +34,10 @@
   </style>
   <body>
     <section>
-      <section>
+      <section class="relative">
         <div
           data-cart-container
-          class="fixed bg-white right-0 top-0 h-full items-center show-animation hidden"
+          class="fixed bg-white right-0 top-0 h-full items-center show-animation hidden cart-container overflow-y-auto"
           style="z-index: 9999; width: calc(33.33% - 45px)"
         >
           <div
@@ -47,8 +47,17 @@
             <h1 class="inline text-2xl pr-0 pt-6 pb-6 pl-6 fredoka-bold">
               Cart
             </h1>
-            <span class="text-2xl p-6 pl-2 fredoka-bold" data-number>0</span>
-            <button class="text-2xl ml-auto px-6" data-remove-cart>
+            <span
+              class="text-2xl p-6 pl-2 fredoka-bold"
+              data-number
+              aria-label="Number of items in the cart"
+              >0</span
+            >
+            <button
+              class="text-2xl ml-auto px-6"
+              data-remove-cart
+              aria-label="Remove item from the cart"
+            >
               &times;
             </button>
           </div>
@@ -65,13 +74,18 @@
               Your cart is empty
             </p>
           </div>
-          <div class="absolute w-full bottom-0 flex justify-center">
+          <div
+            class="fixed bottom-0 right-0 p-2 flex justify-center checkout-btn-styles"
+          >
             <button
               class="fredoka text-xl text-center p-4 m-2 text-white rounded-md w-11/12"
-              aria-label="Checkout your products"
               style="background-color: #232323"
             >
-              Checkout
+              <span aria-label="Checkout button" title="Checkout"
+                >Checkout
+                <span style="color: #232323">a</span>
+                <li class="inline-block" data-total>$0</li></span
+              >
             </button>
           </div>
         </div>
@@ -208,6 +222,12 @@
               aria-required="true"
               autocomplete="new-password"
             />
+            <p
+              class="fredoka text-center m-2 text-red-600 hidden"
+              data-invdata-text-signup
+            >
+              Invalid password or E-mail.
+            </p>
             <button
               type="submit"
               class="light-grey text-white text-center w-full rounded-full fredoka-light p-3 mt-6"

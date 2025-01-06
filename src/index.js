@@ -54,6 +54,8 @@ signupForm === null || signupForm === void 0 ? void 0 : signupForm.addEventListe
     })
         .catch((err) => {
         console.log(err.message);
+        const message = document.querySelector("[data-invdata-text-signup]");
+        message === null || message === void 0 ? void 0 : message.classList.remove("hidden");
     });
     //add the data to database
     (0, firestore_1.addDoc)(colUsernames, {
@@ -74,6 +76,8 @@ loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener
     })
         .catch((err) => {
         console.log(err.message);
+        const message = document.querySelector("[data-invdata-text]");
+        message === null || message === void 0 ? void 0 : message.classList.remove("hidden");
     });
 });
 //Front-end

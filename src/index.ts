@@ -67,6 +67,8 @@ signupForm?.addEventListener("submit", (e) => {
     })
     .catch((err) => {
       console.log(err.message);
+      const message = document.querySelector("[data-invdata-text-signup]");
+      message?.classList.remove("hidden");
     });
 
   //add the data to database
@@ -92,6 +94,8 @@ loginForm?.addEventListener("submit", (e) => {
     })
     .catch((err) => {
       console.log(err.message);
+      const message = document.querySelector("[data-invdata-text]");
+      message?.classList.remove("hidden");
     });
 });
 //Front-end
