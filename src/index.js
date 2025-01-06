@@ -286,11 +286,11 @@ document.addEventListener("DOMContentLoaded", () => {
         let productPrice = price.innerText;
         let numberOfProductsInTheCartContainer = document.querySelector("[data-number]");
         let cartNumber = Number(numberOfProductsInTheCartContainer === null || numberOfProductsInTheCartContainer === void 0 ? void 0 : numberOfProductsInTheCartContainer.innerText);
-        //Template for the product(JS is remove button functionality and quantity buttons)
+        //Template for the product(JS is remove button functionality and quantity)
         let template = `<div class="mx-auto p-2">
             <div class="flex align-items relative" style="width:100%; min-height:100px">
                 <div class="flex-grow">
-                    <img src="../images/mahogany.jpg" alt=${productName} width="100" height="100" />
+                    <img src="../dist/images/${productName}.jpg" alt=${productName} class = "cart-images"/>
                 </div>
                 <div style="flex-grow: 3" class="relative">
                     <h1 class="text-base fredoka-bold">${productName}</h1>
@@ -298,22 +298,22 @@ document.addEventListener("DOMContentLoaded", () => {
                   <div class="inline fredoka border border-gray-400 ml-5"  style="border-radius:3px;">
                     <button class="px-2 text-lg" onclick="   
             let quantity =
-                 document.querySelector('[data-quantity]').innerText;
+                 document.querySelectorAll('[data-quantity]').innerText;
                   if (quantity) {
                     let number = parseInt(quantity);
                     number++;
-                    document.querySelector('[data-quantity]').innerText =
+                    document.querySelectorAll('[data-quantity]').innerText =
                     number.toString();
                   }">+</button>
                        <span class="border-r border-l border-gray-400 px-2" data-quantity>0</span>
                     <button class="px-2 text-lg" onclick="
                     let quantity =
-                 document.querySelector('[data-quantity]').innerText;
+                 document.querySelectorAll('[data-quantity]').innerText;
                   if (quantity) {
                     let number = parseInt(quantity);
                     number--;
                     if(number < 0) number = 0;
-                    document.querySelector('[data-quantity]').innerText =
+                    document.querySelectorAll('[data-quantity]').innerText =
                     number.toString();
                   }">-</button>
                      </div>

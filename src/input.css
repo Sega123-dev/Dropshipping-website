@@ -1,9 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 html {
   scroll-behavior: smooth;
@@ -145,7 +150,13 @@ option {
 input[type="password"] {
   font-family: Verdana;
 }
-
+.cart-images {
+  width: 100px;
+  height: 150px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
 /*Media queries*/
 
 /*Mobile Phones*/
