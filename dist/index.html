@@ -34,10 +34,10 @@
   </head>
   <body onload="showFirstProduct()">
     <main class="relative">
-      <section>
+      <section class="relative">
         <div
           data-cart-container
-          class="fixed bg-white right-0 top-0 h-full items-center show-animation hidden cart-container"
+          class="fixed bg-white right-0 top-0 h-full items-center show-animation hidden cart-container overflow-y-auto"
           style="z-index: 9999; width: calc(33.33% - 45px)"
         >
           <div
@@ -74,7 +74,9 @@
               Your cart is empty
             </p>
           </div>
-          <div class="absolute w-full bottom-0 flex justify-center">
+          <div
+            class="fixed bottom-0 right-0 p-2 flex justify-center checkout-btn-styles"
+          >
             <button
               class="fredoka text-xl text-center p-4 m-2 text-white rounded-md w-11/12"
               style="background-color: #232323"
