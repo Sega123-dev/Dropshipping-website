@@ -302,50 +302,57 @@
           </div>
         </div>
       </section>
-      <section>
-        <div
-          class="flex flex-wrap"
-          style="color: #232323; height: 90vh; max-width: 100%"
-        >
+      <section style="color: #232323; padding: 20px; max-width: 100%">
+        <div class="flex flex-wrap">
           <div
-            class="flex flex-1 justify-center items-center flex-grow blue-watch-wrapper"
+            class="image-container"
+            style="
+              flex: 1 1 300px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-bottom: 20px;
+            "
           >
             <img
               src="images/blue watch.jpg"
               alt="Blue watch"
-              height="330"
-              width="330"
-              class="shadow-2xl md:p-0 md:m-0"
+              style="max-width: 100%; height: auto; width: 330px"
+              class="shadow-2xl"
             />
           </div>
-          <div
-            class="flex-1 flex-grow flex justify-center items-center flex-wrap"
-          >
-            <div>
-              <h1 class="fredoka-bold text-4xl my-4 md:text-start text-center">
-                Best quality watches
-              </h1>
-              <p class="text-lg fredoka md:mr-20 md:text-start text-center">
-                Timepieces as unique as you are.One of the best watches that are
-                available on the market.
-              </p>
-              <div class="flex md:justify-start justify-center">
-                <a href="#"
-                  ><button
-                    class="light-grey p-4 px-6 text-white mt-7 fredoka-light rounded-lg cursor-pointer hover:bg-transparent white-hover grey-button"
-                    title="Shop now"
-                    aria-label="Shop now"
-                  >
-                    Shop Now
-                  </button></a
-                >
-              </div>
 
+          <div
+            class="text-container"
+            style="
+              flex: 1 1 300px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            "
+          >
+            <h1 class="fredoka-bold text-4xl my-4 text-center md:text-start">
+              Best quality watches
+            </h1>
+            <p class="text-lg fredoka text-center md:text-start">
+              Timepieces as unique as you are. One of the best watches that are
+              available on the market.
+            </p>
+            <div class="text-center md:text-start">
+              <a href="#"
+                ><button
+                  class="light-grey p-4 px-6 text-white mt-7 fredoka-light rounded-lg cursor-pointer hover:bg-transparent white-hover grey-button"
+                  title="Shop now"
+                  aria-label="Shop now"
+                >
+                  Shop Now
+                </button></a
               >
             </div>
           </div>
         </div>
       </section>
+
       <section>
         <div class="light-grey text-white p-24">
           <div class="fredoka-bold text-5xl md:mb-16 text-center mb-8">
@@ -492,7 +499,7 @@
           <div class="flex-1 flex-grow flex align-items justify-center">
             <div>
               <svg
-                class="mx-auto block"
+                class="mx-auto block responsive-icons"
                 xmlns="http://www.w3.org/2000/svg"
                 width="42"
                 height="42"
@@ -505,16 +512,18 @@
               >
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
-              <p class="fredoka-bold text-center mt-2">Fast Shipping</p>
+              <p
+                class="text-center mt-2 md:text-base fredoka-bold text-sm-plus"
+              >
+                Fast Shipping
+              </p>
             </div>
           </div>
           <div class="flex-1 flex-grow flex align-items justify-center">
             <div>
               <svg
-                class="block mx-auto"
+                class="block mx-auto responsive-icons"
                 xmlns="http://www.w3.org/2000/svg"
-                width="42"
-                height="42"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="#fff"
@@ -527,16 +536,18 @@
                 ></path>
                 <line x1="7" y1="7" x2="7.01" y2="7"></line>
               </svg>
-              <p class="fredoka-bold text-center mt-2">Subscribe & Save Big</p>
+              <p
+                class="text-center mt-2 md:text-base fredoka-bold text-sm-plus"
+              >
+                Subscribe & Save Big
+              </p>
             </div>
           </div>
           <div class="flex-1 flex-grow flex align-items justify-center">
             <div>
               <svg
-                class="block mx-auto"
+                class="block mx-auto responsive-icons"
                 xmlns="http://www.w3.org/2000/svg"
-                width="42"
-                height="42"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="#fff"
@@ -547,16 +558,18 @@
                 <path d="M10 9l-6 6 6 6" />
                 <path d="M20 4v7a4 4 0 0 1-4 4H5" />
               </svg>
-              <p class="fredoka-bold text-center mt-2">Easy returns</p>
+              <p
+                class="text-center mt-2 md:text-base fredoka-bold text-sm-plus"
+              >
+                Easy returns
+              </p>
             </div>
           </div>
           <div class="flex-1 flex-grow flex align-items justify-center">
             <div>
               <svg
-                class="block mx-auto"
+                class="block mx-auto responsive-icons"
                 xmlns="http://www.w3.org/2000/svg"
-                width="42"
-                height="42"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="#fff"
@@ -568,7 +581,9 @@
                   points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
                 ></polygon>
               </svg>
-              <p class="fredoka-bold text-center mt-2">
+              <p
+                class="text-center mt-2 md:text-base fredoka-bold text-sm-plus"
+              >
                 Over 10,000+ Happy Customers
               </p>
             </div>

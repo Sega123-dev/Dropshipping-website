@@ -1088,6 +1088,10 @@ video {
   line-height: 1.25rem;
 }
 
+.text-sm-plus {
+  font-size: 0.9rem;
+}
+
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1119,14 +1123,14 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
 .text-red-600 {
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .shadow-2xl {
@@ -1150,6 +1154,11 @@ video {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.fredoka-bold {
+  font-weight: bold;
+  font-family: "Fredoka One", sans-serif;
 }
 
 * {
@@ -1363,6 +1372,11 @@ input[type="password"] {
   width: 31.2%;
 }
 
+.responsive-icons {
+  width: 42px;
+  height: 42px;
+}
+
 /*Media queries*/
 
 /*Mobile Phones*/
@@ -1388,6 +1402,11 @@ input[type="password"] {
     -o-object-fit: cover;
        object-fit: cover;
   }
+
+  .responsive-icons {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .hover\:bg-transparent:hover {
@@ -1401,10 +1420,6 @@ input[type="password"] {
 
   .md\:mb-16 {
     margin-bottom: 4rem;
-  }
-
-  .md\:mr-20 {
-    margin-right: 5rem;
   }
 
   .md\:mt-0 {
@@ -1427,10 +1442,6 @@ input[type="password"] {
     flex-direction: row;
   }
 
-  .md\:justify-start {
-    justify-content: flex-start;
-  }
-
   .md\:p-0 {
     padding: 0px;
   }
@@ -1446,6 +1457,11 @@ input[type="password"] {
   .md\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .md\:text-lg {

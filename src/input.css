@@ -161,6 +161,10 @@ input[type="password"] {
 .checkout-btn-styles {
   width: 31.2%;
 }
+.responsive-icons {
+  width: 42px;
+  height: 42px;
+}
 /*Media queries*/
 
 /*Mobile Phones*/
@@ -181,5 +185,9 @@ input[type="password"] {
   .multiple-watches-image {
     display: block;
     object-fit: cover;
+  }
+  .responsive-icons {
+    width: 30px;
+    height: 30px;
   }
 }
