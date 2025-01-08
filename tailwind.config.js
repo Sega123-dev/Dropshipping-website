@@ -8,6 +8,7 @@ module.exports = {
       },
       fontSize: {
         "sm-plus": "0.9rem", // Customize the value as needed
+        "xl-plus": "1.35rem",
       },
       colors: {
         "dark-grey": "var(--dark-grey)",

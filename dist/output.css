@@ -1097,6 +1097,10 @@ video {
   line-height: 1.75rem;
 }
 
+.text-xl-plus {
+  font-size: 1.35rem;
+}
+
 .font-semibold {
   font-weight: 600;
 }
@@ -1377,6 +1381,10 @@ input[type="password"] {
   height: 42px;
 }
 
+.faq-width {
+  width: 45%;
+}
+
 /*Media queries*/
 
 /*Mobile Phones*/
@@ -1406,6 +1414,10 @@ input[type="password"] {
   .responsive-icons {
     width: 30px;
     height: 30px;
+  }
+
+  .faq-width {
+    width: 100%;
   }
 }
 
@@ -1452,6 +1464,11 @@ input[type="password"] {
 
   .md\:text-start {
     text-align: start;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .md\:text-4xl {
