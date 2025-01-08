@@ -405,9 +405,10 @@
         </div>
       </section>
       <section id="shop">
-        <div class="p-16 flex" style="color: #232323">
+        <div class="p-16 flex flex-wrap h-full w-full" style="color: #232323">
+          <!-- Image Section -->
           <div
-            class="flex flex-1 align-items justify-center"
+            class="flex flex-wrap justify-center w-full md:w-1/2 p-4"
             style="color: #232323"
           >
             <img
@@ -415,7 +416,7 @@
               alt="Mahogany Brown Leather Watch"
               width="350"
               height="350"
-              class="rounded-3xl"
+              class="rounded-3xl mb-4"
               id="mahogany"
             />
             <img
@@ -423,7 +424,7 @@
               alt="Casio Black Watch"
               width="380"
               height="380"
-              class="rounded-3xl"
+              class="rounded-3xl mb-4"
               id="casio"
             />
             <img
@@ -431,7 +432,7 @@
               alt="G-Shock Black and Gold Watch"
               width="350"
               height="350"
-              class="rounded-3xl"
+              class="rounded-3xl mb-4"
               id="g-shock"
             />
             <img
@@ -439,61 +440,67 @@
               alt="Rolex Luxury Watch"
               width="330"
               height="330"
-              class="rounded-3xl"
+              class="rounded-3xl mb-4"
               id="rolex"
             />
           </div>
-          <div class="flex flex-1">
-            <div>
-              <h1
-                class="fredoka-bold text-5xl"
-                id="product-display"
-                style="line-height: 1.2"
-              >
-                Mahogany Brown Leather Watch
-              </h1>
-              <p class="fredoka text-2xl mt-4 mb-2" id="price">$ 250,00</p>
-              <p class="fredoka-light text-lg mb-4">Tax included.</p>
-              <p class="text-md fredoka">Other watches</p>
+
+          <!-- Text and Buttons Section -->
+          <div class="flex flex-col justify-center w-full md:w-1/2 p-4">
+            <h1
+              class="fredoka-bold md:text-5xl text-3xl"
+              id="product-display"
+              style="line-height: 1.2"
+            >
+              Mahogany Brown Leather Watch
+            </h1>
+            <p class="fredoka text-2xl mt-4 mb-2" id="price">$ 250,00</p>
+            <p class="fredoka-light text-lg mb-4">Tax included.</p>
+            <p class="text-md fredoka">Other watches</p>
+
+            <!-- Inline buttons -->
+            <div class="flex flex-wrap gap-2 mt-2">
               <button
-                class="p-2 fredoka-light product-hover mt-2 text-sm mr-1"
+                class="p-2 fredoka-light product-hover text-sm"
                 title="Mahogany"
                 id="mahogany-button"
               >
                 Mahogany
               </button>
               <button
-                class="p-2 fredoka-light product-hover mt-2 text-sm m-1"
+                class="p-2 fredoka-light product-hover text-sm"
                 title="Casio"
                 id="casio-button"
               >
                 Casio
               </button>
               <button
-                class="p-2 fredoka-light product-hover mt-2 text-sm m-1"
+                class="p-2 fredoka-light product-hover text-sm"
                 title="Rolex"
                 id="rolex-button"
               >
                 Rolex
               </button>
               <button
-                class="p-2 fredoka-light product-hover mt-2 text-sm m-1"
+                class="p-2 fredoka-light product-hover text-sm"
                 title="G-Shock"
                 id="g-shock-button"
               >
                 G-Shock
               </button>
-              <button
-                class="light-grey text-white text-center w-full rounded-full fredoka-light p-3 mt-6 add-to-cart-hover"
-                data-atc
-                title="Add to Cart"
-              >
-                ADD TO CART
-              </button>
             </div>
+
+            <button
+              class="light-grey text-white text-center w-full rounded-full fredoka-light p-3 mt-6 add-to-cart-hover"
+              data-atc
+              title="Add to Cart"
+            >
+              ADD TO CART
+            </button>
           </div>
         </div>
       </section>
+
       <section>
         <div class="flex light-grey text-white p-8">
           <div class="flex-1 flex-grow flex align-items justify-center">
@@ -598,7 +605,7 @@
             sale! Elevate your style and seize this limited-time opportunity to
             own these timepieces at an unbeatable price.
           </p>
-          <div class="p-8 flex justify-center items-center">
+          <div class="p-8 flex justify-center items-center flex-wrap">
             <img
               class="m-4"
               src="images/omega watch.jpg"
@@ -1346,7 +1353,7 @@
         </div>
       </section>
       <section>
-        <div class="light-grey text-white flex align-center">
+        <div class="light-grey text-white flex align-center flex-wrap">
           <div class="p-10 pr-10 mt-20" style="flex: 2">
             <p class="fredoka-light m-4">Contact Email:</p>
             <p class="fredoka-light m-4 mt-2" title="support@watches.com">
