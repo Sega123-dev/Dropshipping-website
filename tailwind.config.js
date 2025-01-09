@@ -9,6 +9,7 @@ module.exports = {
       fontSize: {
         "sm-plus": "0.9rem", // Customize the value as needed
         "xl-plus": "1.35rem",
+        "signup-font-size": "2.7rem",
       },
       colors: {
         "dark-grey": "var(--dark-grey)",
