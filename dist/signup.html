@@ -245,7 +245,7 @@
       </div>
     </section>
     <section>
-      <div class="light-grey text-white flex align-center">
+      <div class="light-grey text-white flex align-center flex-wrap">
         <div class="p-10 pr-10 mt-20" style="flex: 2">
           <p class="fredoka-light m-4">Contact Email:</p>
           <p class="fredoka-light m-4 mt-2" title="support@watches.com">
@@ -256,10 +256,10 @@
             here.
           </p>
         </div>
-        <div class="flex-1 flex-grow py-10 mt-20">
+        <div class="flex-1 flex-grow py-10 mt-20 flex-wrap">
           <a href="#" class="fredoka-light" title="Shop All">Shop All</a>
         </div>
-        <div class="flex-1 flex-grow py-10 mt-20">
+        <div class="md:flex-1 flex-grow py-10 mt-20 flex-wrap">
           <a href="#" class="fredoka-light block m-1" title="Search">Search</a>
           <a
             href="#"
@@ -290,7 +290,7 @@
           >
             <input
               placeholder="email@example.com"
-              aria-labelledby="Subscription email input"
+              aria-labelledby="Subscription email"
               class="fredoka-light p-2 mt-4 rounded-full outline-none text-white bg-transparent subscribe-input"
               style="flex: 2"
               type="email"
@@ -307,9 +307,9 @@
         </div>
       </div>
       <div
-        class="text-white light-grey p-12 fredoka-light items-center flex pt-24"
+        class="text-white light-grey p-12 fredoka-light items-center flex pt-24 flex-wrap"
       >
-        <div class="flex-1 flex-grow">
+        <div class="flex-1 flex-grow md:w-auto w-full">
           <p class="float-start">
             &copy;
             <script>
@@ -318,7 +318,10 @@
             ,Watches.
           </p>
         </div>
-        <div class="flex-1 flex items-center justify-center" style="flex: 1">
+        <div
+          class="flex-1 flex items-center justify-center md:w-auto w-full"
+          style="flex: 1"
+        >
           <ul class="payment-icons mx-2 text-center">
             <li class="inline-block mx-2 w-8">
               <svg

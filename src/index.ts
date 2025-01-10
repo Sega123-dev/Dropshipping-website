@@ -99,6 +99,11 @@ loginForm?.addEventListener("submit", (e) => {
     });
 });
 //Front-end
+
+//Hambuger menu
+
+const hambugerMenu = document.querySelector<HTMLElement>("[data-hambuger]");
+
 document.addEventListener("DOMContentLoaded", () => {
   let slides = document.querySelectorAll<HTMLElement>("[data-slide]");
   let nextButton = document.querySelector<HTMLButtonElement>("#next");
