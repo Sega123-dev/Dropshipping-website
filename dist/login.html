@@ -97,6 +97,14 @@
     <section class="sticky-navbar z-20">
       <div class="block light-grey text-white fredoka p-4">
         <nav class="flex text-lg items-center z-10">
+          <nav
+            class="absolute top-10 left-5 bg-white p-2 rounded-lg text-black hidden"
+            style="z-index: 9999"
+            data-hamburger-container
+          >
+            <a href="#shop" class="text-xl block m-2">Shop All</a>
+            <a href="./login.html" class="text-xl block m-2">Log In</a>
+          </nav>
           <div class="flex-1 flex-grow">
             <a
               href="index.html#shop"
@@ -105,7 +113,7 @@
               >Shop all</a
             >
             <svg
-              class="cursor-pointer md:hidden account-button"
+              class="cursor-pointer md:hidden"
               xmlns="http://www.w3.org/2000/svg"
               width="28"
               height="28"
@@ -115,6 +123,7 @@
               stroke-width="1"
               stroke-linecap="round"
               stroke-linejoin="round"
+              data-hamburger
             >
               <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -130,7 +139,7 @@
             >
           </div>
           <div class="flex-1 flex-grow flex justify-end">
-            <a href="login.html" class="mx-2 md:block hidden"
+            <a href="login.html" title="Login"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="28"
@@ -254,7 +263,7 @@
             here.
           </p>
         </div>
-        <div class="flex-1 flex-grow py-10 mt-20 flex-wrap">
+        <div class="md:flex flex-1 flex-grow py-10 mt-20 flex-wrap hidden">
           <a href="#" class="fredoka-light" title="Shop All">Shop All</a>
         </div>
         <div class="md:flex-1 flex-grow py-10 mt-20 flex-wrap">
@@ -317,7 +326,7 @@
           </p>
         </div>
         <div
-          class="flex-1 flex items-center justify-center md:w-auto w-full"
+          class="flex-1 md:flex items-center justify-center md:w-auto w-full hidden"
           style="flex: 1"
         >
           <ul class="payment-icons mx-2 text-center">
@@ -1106,5 +1115,14 @@
       cartContainer.classList.remove("hidden");
     });
     let addToCartButton = document.querySelector("[data-atc]");
+
+    const hamburgerMenuIcon = document.querySelector("[data-hamburger]");
+    const hamburgerMenu = document.querySelector("[data-hamburger-container]");
+
+    if (hamburgerMenuIcon && hamburgerMenu) {
+      hamburgerMenuIcon.addEventListener("click", () => {
+        hamburgerMenu.classList.toggle("hidden");
+      });
+    }
   </script>
 </html>

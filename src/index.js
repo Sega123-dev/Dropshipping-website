@@ -81,6 +81,14 @@ loginForm === null || loginForm === void 0 ? void 0 : loginForm.addEventListener
     });
 });
 //Front-end
+//Hambuger menu
+const hamburgerMenuIcon = document.querySelector("[data-hambuger]");
+const hamburgerMenu = document.querySelector("[data-hamburger-container]");
+if (hamburgerMenuIcon && hamburgerMenu) {
+    hamburgerMenuIcon.addEventListener("click", () => {
+        hamburgerMenu.classList.toggle("hidden");
+    });
+}
 document.addEventListener("DOMContentLoaded", () => {
     let slides = document.querySelectorAll("[data-slide]");
     let nextButton = document.querySelector("#next");

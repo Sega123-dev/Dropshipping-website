@@ -102,8 +102,17 @@ loginForm?.addEventListener("submit", (e) => {
 
 //Hambuger menu
 
-const hambugerMenu = document.querySelector<HTMLElement>("[data-hambuger]");
+const hamburgerMenuIcon =
+  document.querySelector<HTMLElement>("[data-hambuger]");
+const hamburgerMenu = document.querySelector<HTMLElement>(
+  "[data-hamburger-container]"
+);
 
+if (hamburgerMenuIcon && hamburgerMenu) {
+  hamburgerMenuIcon.addEventListener("click", () => {
+    hamburgerMenu.classList.toggle("hidden");
+  });
+}
 document.addEventListener("DOMContentLoaded", () => {
   let slides = document.querySelectorAll<HTMLElement>("[data-slide]");
   let nextButton = document.querySelector<HTMLButtonElement>("#next");
