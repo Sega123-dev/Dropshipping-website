@@ -168,6 +168,9 @@ input[type="password"] {
 .faq-width {
   width: 45%;
 }
+.responsive-width {
+  width: calc(33.33% - 45px);
+}
 /*Media queries*/
 
 /*Mobile Phones*/

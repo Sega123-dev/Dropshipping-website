@@ -620,6 +620,10 @@ video {
   bottom: 0px;
 }
 
+.left-5 {
+  left: 1.25rem;
+}
+
 .left-8 {
   left: 2rem;
 }
@@ -632,48 +636,12 @@ video {
   top: 0px;
 }
 
-.top-8 {
-  top: 2rem;
-}
-
-.top-32 {
-  top: 8rem;
-}
-
-.top-36 {
-  top: 9rem;
-}
-
-.top-16 {
-  top: 4rem;
-}
-
-.top-20 {
-  top: 5rem;
-}
-
-.top-2 {
-  top: 0.5rem;
-}
-
-.top-4 {
-  top: 1rem;
-}
-
-.left-6 {
-  left: 1.5rem;
+.top-10 {
+  top: 2.5rem;
 }
 
 .top-5 {
   top: 1.25rem;
-}
-
-.left-5 {
-  left: 1.25rem;
-}
-
-.top-10 {
-  top: 2.5rem;
 }
 
 .z-10 {
@@ -682,10 +650,6 @@ video {
 
 .z-20 {
   z-index: 20;
-}
-
-.-z-50 {
-  z-index: -50;
 }
 
 .float-start {
@@ -948,10 +912,6 @@ video {
   border-radius: 0.375rem;
 }
 
-.rounded-sm {
-  border-radius: 0.125rem;
-}
-
 .border {
   border-width: 1px;
 }
@@ -1191,10 +1151,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-dark-grey {
-  color: var(--dark-grey);
 }
 
 .shadow-2xl {
@@ -1445,6 +1401,10 @@ input[type="password"] {
   width: 45%;
 }
 
+.responsive-width {
+  width: calc(33.33% - 45px);
+}
+
 /*Media queries*/
 
 /*Mobile Phones*/
@@ -1522,16 +1482,8 @@ input[type="password"] {
     flex: 1 1 0%;
   }
 
-  .md\:flex-grow {
-    flex-grow: 1;
-  }
-
   .md\:flex-row {
     flex-direction: row;
-  }
-
-  .md\:flex-wrap {
-    flex-wrap: wrap;
   }
 
   .md\:p-0 {
