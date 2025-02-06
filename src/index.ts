@@ -464,6 +464,21 @@ document.addEventListener("DOMContentLoaded", () => {
     cartNumber = cartNumber + 1;
     numberOfProductsInTheCartContainer!.innerText = cartNumber.toString();
     productsContainer!.innerHTML += template;
+    let priceForTotal = price.innerText;
     updateCartNumber(cartNumber);
+    updateCartTotal(priceForTotal, "+");
   }
 });
+//Update Cart total
+
+function updateCartTotal(price: string, updateType: string): void {
+  const cartTotal = document.querySelector("[data-total]") as HTMLLIElement;
+  let totalValue: string = cartTotal.innerText;
+  let numberTotalValue: number = Number(totalValue.substring(1));
+  price = price.replace(",", ".");
+  if (updateType == "+") {
+    let updatedPrice: number = (numberTotalValue += Number(price.substring(1)));
+  }
+
+  cartTotal.innerHTML = "$" + updatedPrice + ".00";
+}

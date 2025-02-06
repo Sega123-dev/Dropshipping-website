@@ -363,6 +363,19 @@ document.addEventListener("DOMContentLoaded", () => {
         cartNumber = cartNumber + 1;
         numberOfProductsInTheCartContainer.innerText = cartNumber.toString();
         productsContainer.innerHTML += template;
+        let priceForTotal = price.innerText;
         updateCartNumber(cartNumber);
+        updateCartTotal(priceForTotal, "+");
     }
 });
+//Update Cart total
+function updateCartTotal(price, updateType) {
+    const cartTotal = document.querySelector("[data-total]");
+    let totalValue = cartTotal.innerText;
+    let numberTotalValue = Number(totalValue.substring(1));
+    price = price.replace(",", ".");
+    if (updateType == "+") {
+        let updatedPrice = (numberTotalValue += Number(price.substring(1)));
+    }
+    cartTotal.innerHTML = "$" + updatedPrice + ".00";
+}
