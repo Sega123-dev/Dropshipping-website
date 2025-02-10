@@ -308,26 +308,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <h1 class="text-base fredoka-bold">${productName}</h1>
                     <p class="fredoka inline">${productPrice}</p>
                   <div class="inline fredoka border border-gray-400 ml-5"  style="border-radius:3px;">
-                    <button class="px-2 text-lg" onclick="   
-            let quantity =
-                 document.querySelectorAll('[data-quantity]').innerText;
-                  if (quantity) {
-                    let number = parseInt(quantity);
-                    number++;
-                    document.querySelectorAll('[data-quantity]').innerText =
-                    number.toString();
-                  }">+</button>
-                       <span class="border-r border-l border-gray-400 px-2" data-quantity>0</span>
-                    <button class="px-2 text-lg" onclick="
-                    let quantity =
-                 document.querySelectorAll('[data-quantity]').innerText;
-                  if (quantity) {
-                    let number = parseInt(quantity);
-                    number--;
-                    if(number < 0) number = 0;
-                    document.querySelectorAll('[data-quantity]').innerText =
-                    number.toString();
-                  }">-</button>
+                    
                      </div>
                   </div>
                   <button class="cursor-pointer p-2 absolute top-0 right-0 text-md z-10" title="Remove Product" 
@@ -365,17 +346,21 @@ document.addEventListener("DOMContentLoaded", () => {
         productsContainer.innerHTML += template;
         let priceForTotal = price.innerText;
         updateCartNumber(cartNumber);
-        updateCartTotal(priceForTotal, "+");
+        updateCartTotalPlus(priceForTotal, "-");
     }
 });
 //Update Cart total
-function updateCartTotal(price, updateType) {
+function updateCartTotalPlus(price, updateType) {
     const cartTotal = document.querySelector("[data-total]");
     let totalValue = cartTotal.innerText;
     let numberTotalValue = Number(totalValue.substring(1));
     price = price.replace(",", ".");
+    let updatedPricePlus = (numberTotalValue += Number(price.substring(1)));
+    let updatedPriceMinus = (numberTotalValue -= Number(price.substring(1)));
     if (updateType == "+") {
-        let updatedPrice = (numberTotalValue += Number(price.substring(1)));
+        cartTotal.innerHTML = "$" + updatedPricePlus;
     }
-    cartTotal.innerHTML = "$" + updatedPrice + ".00";
+    else if (updateType == "-") {
+        cartTotal.innerHTML = "$" + updatedPriceMinus;
+    }
 }
