@@ -13,7 +13,6 @@ Some pages are not made because this is a demo version that is made just to be a
 - Logging into it via Log In
 - User can add products to cart
 - User can checkout products
-- Payments
 - Database
 
 TECHNOLOGIES USED: TypeScript,JavaScript,CSS,HTML,TailwindCSS,Firebase.
