@@ -28,7 +28,6 @@ Simpletics website look far more advanced,but it wasnt that much when i started 
 
 # Notes
 
-For testing payments, write fake email and write 42 repeatedly for the credit card information.
 Website is responsive(can be used on phones and tablets),but there are some errors due to tailwind rules.
 Files that are not pushed to GitHub are enviorment variables and node_module folder.
 
